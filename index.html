@@ -11,11 +11,12 @@
   <link rel="stylesheet" href="style.css" />
   <style>
     .memory-art{margin-top:36px;position:relative;border-radius:30px;overflow:hidden;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.035);box-shadow:0 30px 90px rgba(0,0,0,.4);}
-    .memory-art img{width:100%;display:block;height:auto;transition:transform 1.2s cubic-bezier(.2,.8,.2,1),filter .8s ease;}
-    .memory-art:hover img{transform:scale(1.018);filter:saturate(1.05) brightness(1.03)}
+    .memory-art img{width:100%;display:block;height:auto;transition:transform 1.2s cubic-bezier(.2,.8,.2,1),filter .8s ease;animation:memoryDrift 8s ease-in-out infinite;transform-origin:center;}
+    .memory-art:hover img{transform:scale(1.018);filter:saturate(1.05) brightness(1.03);animation-play-state:paused}
     .memory-art:after{content:'♡';position:absolute;right:22px;bottom:18px;color:#ffd8e8;font-size:28px;text-shadow:0 0 24px rgba(255,180,215,.8);animation:heartFloat 3s ease-in-out infinite;pointer-events:none}
     .memory-art-caption{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:15px 18px;color:var(--muted);font-size:12px;letter-spacing:.08em;text-transform:uppercase;background:rgba(12,7,15,.65)}
     .memory-art-caption strong{color:#ffe5ef;font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:500;letter-spacing:0;text-transform:none}
+    @keyframes memoryDrift{0%,100%{transform:scale(1) translateY(0)}50%{transform:scale(1.012) translateY(-5px)}}
     @keyframes heartFloat{0%,100%{transform:translateY(0) scale(1);opacity:.75}50%{transform:translateY(-7px) scale(1.08);opacity:1}}
     @media(max-width:760px){.memory-art{border-radius:22px}.memory-art-caption{padding:13px 14px;align-items:flex-start;flex-direction:column;gap:4px}.memory-art-caption strong{font-size:21px}.memory-art:after{right:14px;bottom:14px}}
     @media(prefers-reduced-motion:reduce){.memory-art img,.memory-art:after{transition:none;animation:none}}
@@ -96,9 +97,9 @@
       <section class="photo-section section">
         <p class="eyebrow">A few little memories</p>
         <h3 style="font-family:'Cormorant Garamond',serif;font-size:clamp(44px,7vw,76px);line-height:.9;margin:14px 0 10px;">Moments I would keep<br><em>forever.</em></h3>
-        <p class="gallery-note">Not the original portraits — this is the dreamy animated-style memory artwork, with the faces intentionally obscured.</p>
+        <p class="gallery-note">A dreamy memory artwork made especially for Veda — no original portraits are displayed here.</p>
         <div class="memory-art">
-          <img src="memories.webp" alt="Dreamy romantic memories artwork for Veda" loading="lazy">
+          <img src="ui-photo.png" alt="Dreamy romantic memories artwork for Veda" loading="lazy">
           <div class="memory-art-caption"><strong>My favorite moments ♡</strong><span>not just pictures · feelings</span></div>
         </div>
       </section>
