@@ -7,6 +7,7 @@
   #vedaWelcome .vw-kicker{left:5.6vw;top:15vh;font-size:10px;letter-spacing:.34em}
   #vedaWelcome .vw-title{left:5.5vw;top:22vh;width:48vw;font-size:clamp(64px,8vw,116px);line-height:.84;z-index:8}
   #vedaWelcome .vw-title em{color:#ff8fbd}
+  #vedaWelcome .vw-title .vw-love path{fill:#ff8fbd !important}
   #vedaWelcome .vw-sub{left:5.7vw;top:53vh;font-size:clamp(17px,2vw,25px)}
   #vedaWelcome .vw-date{left:5.7vw;top:62vh;letter-spacing:.32em}
   #vedaWelcome .vw-wishes{left:5.7vw;top:69vh;max-width:50vw;gap:10px;z-index:9}
