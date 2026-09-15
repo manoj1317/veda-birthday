@@ -1,11 +1,7 @@
 (function(){
   const css = `
   /* Cinematic reference match: deep wine/pink, large heart, curved arrow, explosive heart burst. */
-  #vedaWelcome{background:
-    radial-gradient(circle at 84% 22%,rgba(255,44,145,.26),transparent 25%),
-    radial-gradient(circle at 44% 76%,rgba(255,48,143,.12),transparent 34%),
-    linear-gradient(135deg,#12020d 0%,#3b0a28 50%,#090207 100%) !important;
-  }
+  #vedaWelcome{background:radial-gradient(circle at 84% 22%,rgba(255,44,145,.26),transparent 25%),radial-gradient(circle at 44% 76%,rgba(255,48,143,.12),transparent 34%),linear-gradient(135deg,#12020d 0%,#3b0a28 50%,#090207 100%) !important}
   #vedaWelcome .vw-stars{opacity:.32;background-size:38px 38px}
   #vedaWelcome .vw-glow{right:0;top:0;width:52vw;height:52vw;background:rgba(255,44,145,.22);filter:blur(78px)}
   #vedaWelcome .vw-kicker{left:5.6vw;top:15vh;font-size:10px;letter-spacing:.34em}
@@ -22,6 +18,7 @@
   #vedaWelcome .vw-heart-target.hit{animation:referenceHeartHit .72s cubic-bezier(.12,.8,.2,1) forwards !important}
   #vedaWelcome .vw-heart-target path:nth-child(2){fill:#fff !important}
   #vedaWelcome .vw-heart-target .vw-heart-glow{fill:#ff6ea9;opacity:.62;filter:blur(8px)}
+  #vedaWelcome .vw-heart-after,#vedaWelcome .vw-impact{display:none !important}
   #vedaWelcome .vw-arrow-scene{opacity:1 !important}
   #vedaWelcome .vw-arrow-scene.fade{opacity:1 !important}
   #vedaWelcome .vw-arrow-trail{stroke:url(#arrowGradient);stroke-width:4;filter:url(#arrowGlow);opacity:.98}
@@ -54,15 +51,7 @@
   @keyframes refSpark{0%{opacity:0;transform:translate(0,0) scale(.2)}12%{opacity:1}100%{opacity:0;transform:translate(var(--x),var(--y)) scale(1.5)}}
   @keyframes refScript{from{opacity:0;transform:rotate(-6deg) translateY(12px)}to{opacity:1;transform:rotate(-6deg) translateY(0)}}
   @keyframes referenceButtonPulse{0%,100%{box-shadow:0 0 18px rgba(255,80,164,.22),inset 0 0 20px rgba(255,91,166,.04)}50%{box-shadow:0 0 45px rgba(255,80,164,.42),inset 0 0 25px rgba(255,91,166,.08)}}
-  @media(max-width:700px){
-    #vedaWelcome .vw-kicker{top:9vh;left:7vw}
-    #vedaWelcome .vw-title{top:16vh;left:7vw;width:82vw;font-size:clamp(52px,14vw,82px)}
-    #vedaWelcome .vw-sub{top:39vh;left:7vw}
-    #vedaWelcome .vw-date{top:47vh;left:7vw}
-    #vedaWelcome .vw-wishes{top:61vh;left:7vw;max-width:86vw}
-    #vedaWelcome .vw-enter{top:78vh;left:7vw;min-width:0;width:82vw;padding:14px 20px}
-    .ref-script{right:7vw;bottom:3vh;font-size:22px}
-  }
+  @media(max-width:700px){#vedaWelcome .vw-kicker{top:9vh;left:7vw}#vedaWelcome .vw-title{top:16vh;left:7vw;width:82vw;font-size:clamp(52px,14vw,82px)}#vedaWelcome .vw-sub{top:39vh;left:7vw}#vedaWelcome .vw-date{top:47vh;left:7vw}#vedaWelcome .vw-wishes{top:61vh;left:7vw;max-width:86vw}#vedaWelcome .vw-enter{top:78vh;left:7vw;min-width:0;width:82vw;padding:14px 20px}.ref-script{right:7vw;bottom:3vh;font-size:22px}}
   `;
   const s=document.createElement('style');s.textContent=css;document.head.appendChild(s);
 
@@ -73,36 +62,19 @@
     const target=wrap.querySelector('#vwHeartTarget');
     if(!art||!target) return;
     const ns='http://www.w3.org/2000/svg';
-    const defs=art.querySelector('defs');
-    const burst=document.createElementNS(ns,'g');
-    burst.classList.add('ref-burst');
-    burst.innerHTML=`<circle class="ref-ring" cx="1450" cy="205" r="105"/><circle class="ref-ring" cx="1450" cy="205" r="145"/>
-      <g class="ref-rays">${Array.from({length:34},(_,i)=>{const a=i*(360/34)*Math.PI/180;const r1=92+(i%3)*10;const r2=190+(i%5)*18;const x1=1450+Math.cos(a)*r1,y1=205+Math.sin(a)*r1,x2=1450+Math.cos(a)*r2,y2=205+Math.sin(a)*r2;return `<line class="ref-ray ${i%4===0?'white':''}" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke-width="${i%4===0?2:3}"/>`;}).join('')}</g>`;
+    const burst=document.createElementNS(ns,'g');burst.classList.add('ref-burst');
+    burst.innerHTML=`<circle class="ref-ring" cx="1450" cy="205" r="105"/><circle class="ref-ring" cx="1450" cy="205" r="145"/><g class="ref-rays">${Array.from({length:34},(_,i)=>{const a=i*(360/34)*Math.PI/180;const r1=92+(i%3)*10;const r2=190+(i%5)*18;const x1=1450+Math.cos(a)*r1,y1=205+Math.sin(a)*r1,x2=1450+Math.cos(a)*r2,y2=205+Math.sin(a)*r2;return `<line class="ref-ray ${i%4===0?'white':''}" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke-width="${i%4===0?2:3}"/>`;}).join('')}</g>`;
     art.appendChild(burst);
-    const heart=document.createElementNS(ns,'g');
-    heart.classList.add('ref-heart');
-    heart.innerHTML='<path d="M0 115C-18 98-108 51-108-16C-108-72-45-91 0-39C45-91 108-72 108-16C108 51 18 98 0 115Z" fill="#fff"/><path d="M-48-28C-26-55 2-55 27-37" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" opacity=".9"/>';
-    art.appendChild(heart);
+    const heart=document.createElementNS(ns,'g');heart.classList.add('ref-heart');heart.innerHTML='<path d="M0 115C-18 98-108 51-108-16C-108-72-45-91 0-39C45-91 108-72 108-16C108 51 18 98 0 115Z" fill="#fff"/><path d="M-48-28C-26-55 2-55 27-37" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" opacity=".9"/>';art.appendChild(heart);
     const script=document.createElement('div');script.className='ref-script';script.innerHTML='Let Happiness<br>Find You...<small>♥</small>';wrap.appendChild(script);
     function fire(){
-      target.classList.add('hit');
-      burst.classList.add('show');
-      burst.querySelectorAll('.ref-ring').forEach((r,i)=>{r.style.animationDelay=(i*.08)+'s';r.classList.add('show')});
-      heart.classList.add('show');
-      for(let i=0;i<58;i++){
-        const h=document.createElement('span');h.className='ref-mini-heart';h.textContent=i%7===0?'✦':'♥';
-        h.style.left='calc(90.6% - 10px)';h.style.top='calc(22.8% + 6px)';
-        const angle=Math.random()*Math.PI*2,dist=100+Math.random()*270;
-        h.style.setProperty('--x',(Math.cos(angle)*dist)+'px');h.style.setProperty('--y',(Math.sin(angle)*dist*.78)+'px');h.style.setProperty('--r',((Math.random()-.5)*100)+'deg');h.style.fontSize=(10+Math.random()*28)+'px';h.style.animationDelay=(Math.random()*.35)+'s';h.classList.add('show');wrap.appendChild(h);setTimeout(()=>h.remove(),2400);
-      }
-      for(let i=0;i<45;i++){
-        const p=document.createElement('i');p.className='ref-spark';p.style.left='calc(90.6% - 2px)';p.style.top='22.8%';const angle=Math.random()*Math.PI*2,dist=70+Math.random()*330;p.style.setProperty('--x',(Math.cos(angle)*dist)+'px');p.style.setProperty('--y',(Math.sin(angle)*dist*.72)+'px');p.style.animationDelay=(Math.random()*.3)+'s';p.classList.add('show');wrap.appendChild(p);setTimeout(()=>p.remove(),1900);
-      }
+      target.classList.add('hit');burst.classList.add('show');burst.querySelectorAll('.ref-ring').forEach((r,i)=>{r.style.animationDelay=(i*.08)+'s';r.classList.add('show')});heart.classList.add('show');
+      for(let i=0;i<58;i++){const h=document.createElement('span');h.className='ref-mini-heart';h.textContent=i%7===0?'✦':'♥';h.style.left='calc(90.6% - 10px)';h.style.top='calc(22.8% + 6px)';const angle=Math.random()*Math.PI*2,dist=100+Math.random()*270;h.style.setProperty('--x',(Math.cos(angle)*dist)+'px');h.style.setProperty('--y',(Math.sin(angle)*dist*.78)+'px');h.style.setProperty('--r',((Math.random()-.5)*100)+'deg');h.style.fontSize=(10+Math.random()*28)+'px';h.style.animationDelay=(Math.random()*.35)+'s';h.classList.add('show');wrap.appendChild(h);setTimeout(()=>h.remove(),2400)}
+      for(let i=0;i<45;i++){const p=document.createElement('i');p.className='ref-spark';p.style.left='calc(90.6% - 2px)';p.style.top='22.8%';const angle=Math.random()*Math.PI*2,dist=70+Math.random()*330;p.style.setProperty('--x',(Math.cos(angle)*dist)+'px');p.style.setProperty('--y',(Math.sin(angle)*dist*.72)+'px');p.style.animationDelay=(Math.random()*.3)+'s';p.classList.add('show');wrap.appendChild(p);setTimeout(()=>p.remove(),1900)}
       script.classList.add('show');
     }
     setTimeout(fire,3650);
   }
   const existing=document.getElementById('vedaWelcome');
-  if(existing) decorate(existing);
-  else new MutationObserver((_,obs)=>{const wrap=document.getElementById('vedaWelcome');if(wrap){decorate(wrap);obs.disconnect()}}).observe(document.body,{childList:true,subtree:true});
+  if(existing) decorate(existing);else new MutationObserver((_,obs)=>{const wrap=document.getElementById('vedaWelcome');if(wrap){decorate(wrap);obs.disconnect()}}).observe(document.body,{childList:true,subtree:true});
 })();
