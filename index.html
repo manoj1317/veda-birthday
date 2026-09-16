@@ -3,60 +3,120 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#160d24" />
+  <meta name="theme-color" content="#12091c" />
   <title>For Veda ♡</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=Noto+Sans+Telugu:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="theme-trial.css" />
-  <link rel="stylesheet" href="birthday-colors.css" />
-  <style>
-    .nav-mark{font-size:52px!important;line-height:1!important;letter-spacing:.04em!important;white-space:nowrap!important;color:#ff9ac6!important;text-shadow:0 0 18px rgba(255,120,185,.28)!important}
-    @media(max-width:760px){.nav-mark{font-size:40px!important}}
-    .memory-art{margin-top:36px;position:relative;border-radius:30px;overflow:hidden;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.035);box-shadow:0 30px 90px rgba(0,0,0,.4);}
-    .memory-art img{width:100%;display:block;height:auto;transition:transform 1.2s cubic-bezier(.2,.8,.2,1),filter .8s ease;animation:memoryDrift 8s ease-in-out infinite;transform-origin:center;}
-    .memory-art:hover img{transform:scale(1.018);filter:saturate(1.05) brightness(1.03);animation-play-state:paused}
-    .memory-art:after{content:'♡';position:absolute;right:22px;bottom:18px;color:#e6dcff;font-size:28px;text-shadow:0 0 24px rgba(201,183,255,.85);animation:heartFloat 3s ease-in-out infinite;pointer-events:none}
-    .memory-art-caption{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:15px 18px;color:var(--muted);font-size:12px;letter-spacing:.08em;text-transform:uppercase;background:rgba(5,10,22,.72)}
-    .memory-art-caption strong{color:#eee9ff;font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:500;letter-spacing:0;text-transform:none}
-    @keyframes memoryDrift{0%,100%{transform:scale(1) translateY(0)}50%{transform:scale(1.012) translateY(-5px)}}
-    @keyframes heartFloat{0%,100%{transform:translateY(0) scale(1);opacity:.75}50%{transform:translateY(-7px) scale(1.08);opacity:1}}
-    @media(max-width:760px){.memory-art{border-radius:22px}.memory-art-caption{padding:13px 14px;align-items:flex-start;flex-direction:column;gap:4px}.memory-art-caption strong{font-size:21px}.memory-art:after{right:14px;bottom:14px}}
-    @media(prefers-reduced-motion:reduce){.memory-art img,.memory-art:after{transition:none;animation:none}}
-  </style>
 </head>
 <body>
   <div id="hearts" aria-hidden="true"></div>
   <main>
     <section class="gate" id="gate">
+      <div class="gate-glow"></div>
       <div class="gate-card">
-        <div class="sparkle">✦</div>
-        <p class="eyebrow">A little secret made with love</p>
+        <div class="gate-symbol">♡</div>
+        <p class="eyebrow">A private little universe</p>
         <h1>For <em>Veda</em></h1>
-        <p class="gate-copy">There is a tiny world waiting for you inside.</p>
+        <p class="gate-copy">There is a tiny world waiting for you inside.<br>Take your time. It's made just for you.</p>
         <form id="unlockForm">
           <label for="password">The secret word</label>
           <div class="password-row"><input id="password" type="password" autocomplete="off" placeholder="Enter the password" /><button type="submit">Open ♡</button></div>
-          <p class="error" id="error"></p>
+          <p class="error" id="error" aria-live="polite"></p>
         </form>
       </div>
     </section>
+
     <section class="site hidden" id="site">
-      <nav><span class="nav-mark">V ♡ M</span><span>08 October · 2001</span></nav>
-      <section class="hero"><p class="eyebrow">For Vedavathi · Hedavathi · Lavanya</p><h2>Happy Birthday,<br><em>my Veda.</em></h2><p class="hero-copy">Today isn't just another date. It's a little reminder that the world became more beautiful on 08 October 2001.</p><a class="scroll-hint" href="#letter">scroll gently ↓</a></section>
-      <section class="letter section" id="letter"><p class="eyebrow">A letter for you</p><div class="paper"><p>My dearest Veda,</p><p>Some people arrive in our lives and quietly make ordinary days feel extraordinary. You are one of those people.</p><p>I hope this new year of your life gives you reasons to smile when nobody is watching, dreams that scare you in the best possible way, and countless little moments worth remembering.</p><p>If this page could hold everything I want to say, it would probably need a whole universe. So for now, let this little corner of the internet simply say:</p><p class="big-line">You are deeply, wonderfully special. ♡</p><p>Happy birthday, Veda. Here's to every beautiful chapter still waiting for you.</p><p class="signature">— with love</p></div></section>
-      <section class="telugu section"><p class="eyebrow">నీ కోసం · For you</p><h3>కొన్ని మాటలు<br><em>మనసు నుంచి.</em></h3><div class="quotes"><article class="quote-card"><span>♡</span><p>“నీ నవ్వు చూస్తే నా ప్రపంచమే ఇంకొంచెం అందంగా మారిపోతుంది.”</p><small>Your smile makes my whole world a little more beautiful.</small></article><article class="quote-card"><span>✦</span><p>“నువ్వు నా జీవితంలోకి వచ్చిన రోజు నుంచి, సాధారణమైన క్షణాలకూ ఒక ప్రత్యేకమైన అర్థం వచ్చింది.”</p><small>Since you came into my life, even ordinary moments have felt special.</small></article><article class="quote-card"><span>♡</span><p>“నీ కలలన్నీ నిజమవ్వాలి… నీ ప్రతి రోజూ నిన్ను చూసి నవ్వాలి.”</p><small>May all your dreams come true, and may every day give you a reason to smile.</small></article><article class="quote-card featured"><span>∞</span><p>“ఎన్ని జన్మలైనా… ప్రతి జన్మలోనూ నిన్నే కలవాలని కోరుకుంటాను.”</p><small>In every lifetime, I would still wish to find you.</small></article></div></section>
-      <section class="memories section"><p class="eyebrow">Little things</p><h3>Three reasons this day matters.</h3><div class="cards"><article><span>01</span><h4>Your smile</h4><p>Because somehow it makes even the most ordinary moment feel like a memory worth keeping.</p></article><article><span>02</span><h4>Your heart</h4><p>For the kindness, warmth and quiet magic you carry with you without even trying.</p></article><article><span>03</span><h4>Your story</h4><p>For everything you've become, everything you're becoming, and everything still ahead.</p></article></div></section>
-      <section class="story section"><p class="eyebrow">Your little universe</p><h3>Some chapters deserve<br><em>to be remembered.</em></h3><div class="story-grid"><article class="story-card"><div class="num">01</div><h4>The beginning</h4><p>08.10.2001 — the first page of the story of someone wonderfully, unmistakably you.</p></article><article class="story-card"><div class="num">02</div><h4>The now</h4><p>Everything you've learned, every laugh, every hard day, every little victory — all of it brought you here.</p></article><article class="story-card"><div class="num">03</div><h4>The next chapter</h4><p>More adventures, more dreams, more reasons to look back one day and smile.</p></article><article class="story-card"><div class="num">04</div><h4>Always</h4><p>Some memories fade at the edges. The ones that matter become part of who we are.</p></article></div></section>
-      <section class="photo-section section"><p class="eyebrow">A few little memories</p><h3 style="font-family:'Cormorant Garamond',serif;font-size:clamp(44px,7vw,76px);line-height:.9;margin:14px 0 10px;">Moments I would keep<br><em>forever.</em></h3><p class="gallery-note">A dreamy memory artwork made especially for Veda — no original portraits are displayed here.</p><div class="memory-art"><img src="ui-photo.png" alt="Dreamy romantic memories artwork for Veda" loading="lazy"><div class="memory-art-caption"><strong>My favorite moments ♡</strong><span>not just pictures · feelings</span></div></div></section>
-      <section class="wish section" id="wish"><div class="wish-orb">✦</div><p class="eyebrow">Make a wish</p><h3>Close your eyes.<br><em>Wish big.</em></h3><p class="wish-message" id="wishMessage">And when you're ready, press the button. Something lovely is waiting.</p><button id="wishButton" type="button">I made my wish ♡</button></section>
-      <section class="final section"><div class="moon">☾</div><p class="eyebrow">One last thing</p><h3>May this year be<br><em>beautifully yours.</em></h3><p>Happy Birthday, Veda. ♡</p></section>
+      <nav class="topbar">
+        <a class="nav-mark" href="#top" aria-label="Veda and Manoj">V <span>♡</span> M</a>
+        <div class="nav-right"><a href="#letter">letter</a><a href="#universe">universe</a><a href="#wish">wish</a><span>08 October · 2001</span></div>
+      </nav>
+
+      <header class="hero" id="top">
+        <div class="hero-copy-wrap">
+          <p class="eyebrow">For Vedavathi · Hedavathi · Lavanya</p>
+          <h2>Happy Birthday,<br><em>my Veda.</em></h2>
+          <p class="hero-lead">Today isn't just another date. It's the day the world got a little more beautiful — and somehow, my world did too.</p>
+          <div class="hero-meta"><span>08 · OCTOBER · 2001</span><span class="meta-line"></span><span>made with love</span></div>
+          <a class="scroll-hint" href="#letter">scroll gently <span>↓</span></a>
+        </div>
+        <div class="hero-orbit" aria-hidden="true"><span class="orbit-heart">♡</span><i></i><i></i><i></i></div>
+      </header>
+
+      <section class="letter section" id="letter">
+        <div class="section-heading"><p class="eyebrow">A letter for you</p><span class="section-number">01</span></div>
+        <div class="paper">
+          <p class="letter-greeting">My dearest Veda,</p>
+          <p>Some people arrive in our lives and quietly change the feeling of ordinary days. You are one of those people for me.</p>
+          <p>I hope this new year of your life gives you reasons to smile when nobody is watching, dreams that scare you in the best possible way, and little moments that you will want to keep forever.</p>
+          <p>If this page could hold everything I want to say, it would need a whole universe. So let this little corner of the internet say the simplest part:</p>
+          <p class="big-line">You are deeply, wonderfully special. <span>♡</span></p>
+          <p>Keep becoming the person you are meant to be. Keep choosing joy. And whenever life feels loud, I hope you remember how loved you are.</p>
+          <p class="signature">— with all my love</p>
+        </div>
+      </section>
+
+      <section class="telugu section">
+        <div class="section-heading centered"><p class="eyebrow">నీ కోసం · For you</p><span class="section-number">02</span></div>
+        <h3>కొన్ని మాటలు<br><em>మనసు నుంచి.</em></h3>
+        <div class="quotes">
+          <article class="quote-card"><span>♡</span><p>“నీ నవ్వు చూస్తే నా ప్రపంచమే ఇంకొంచెం అందంగా మారిపోతుంది.”</p><small>Your smile makes my whole world a little more beautiful.</small></article>
+          <article class="quote-card"><span>✦</span><p>“నువ్వు నా జీవితంలోకి వచ్చిన రోజు నుంచి, సాధారణమైన క్షణాలకూ ఒక ప్రత్యేకమైన అర్థం వచ్చింది.”</p><small>Since you came into my life, even ordinary moments have felt special.</small></article>
+          <article class="quote-card"><span>♡</span><p>“నీ కలలన్నీ నిజమవ్వాలి… నీ ప్రతి రోజూ నిన్ను చూసి నవ్వాలి.”</p><small>May your dreams come true, and may every day give you a reason to smile.</small></article>
+          <article class="quote-card featured"><span>∞</span><p>“ఎన్ని జన్మలైనా… ప్రతి జన్మలోనూ నిన్నే కలవాలని కోరుకుంటాను.”</p><small>In every lifetime, I would still wish to find you.</small></article>
+        </div>
+      </section>
+
+      <section class="memories section" id="reasons">
+        <div class="section-heading"><p class="eyebrow">Little things I notice</p><span class="section-number">03</span></div>
+        <h3>Three little things<br><em>that feel like you.</em></h3>
+        <div class="reason-list">
+          <article class="reason"><span class="reason-no">01</span><div><h4>Your smile</h4><p>It turns an ordinary moment into something I want to remember.</p></div><span class="reason-mark">↗</span></article>
+          <article class="reason"><span class="reason-no">02</span><div><h4>Your heart</h4><p>The kindness and warmth you carry, often without even noticing.</p></div><span class="reason-mark">↗</span></article>
+          <article class="reason"><span class="reason-no">03</span><div><h4>Your way of being</h4><p>There is a quiet magic in the person you are becoming, one day at a time.</p></div><span class="reason-mark">↗</span></article>
+        </div>
+      </section>
+
+      <section class="story section" id="universe">
+        <div class="section-heading"><p class="eyebrow">Your little universe</p><span class="section-number">04</span></div>
+        <h3>A few chapters<br><em>worth keeping.</em></h3>
+        <div class="timeline">
+          <article class="timeline-item"><div class="timeline-dot">01</div><div><p class="timeline-date">08 · 10 · 2001</p><h4>The beginning</h4><p>The first page of the story of someone wonderfully, unmistakably you.</p></div></article>
+          <article class="timeline-item"><div class="timeline-dot">02</div><div><p class="timeline-date">all the days since</p><h4>The becoming</h4><p>Every laugh, lesson, hard day and little victory helped shape the person you are now.</p></div></article>
+          <article class="timeline-item"><div class="timeline-dot">03</div><div><p class="timeline-date">next chapter</p><h4>More of everything</h4><p>More dreams. More adventures. More tiny moments that deserve to become memories.</p></div></article>
+          <article class="timeline-item"><div class="timeline-dot">04</div><div><p class="timeline-date">always</p><h4>The parts that stay</h4><p>Some memories fade at the edges. The ones that matter quietly become part of us.</p></div></article>
+        </div>
+      </section>
+
+      <section class="photo-section section">
+        <div class="section-heading"><p class="eyebrow">A few little memories</p><span class="section-number">05</span></div>
+        <div class="memory-intro"><h3>Moments I would keep<br><em>forever.</em></h3><p>A dreamy memory artwork made especially for Veda — no original portraits are displayed here.</p></div>
+        <figure class="memory-art"><img src="ui-photo.png" alt="Dreamy romantic memory artwork with polaroids and hearts" loading="lazy"><figcaption><strong>My favorite moments ♡</strong><span>not just pictures · feelings</span></figcaption></figure>
+      </section>
+
+      <section class="wish section" id="wish">
+        <div class="wish-card">
+          <div class="wish-orb"><span>✦</span></div>
+          <p class="eyebrow">06 · Make a wish</p>
+          <h3>Close your eyes.<br><em>Wish big.</em></h3>
+          <p class="wish-message" id="wishMessage">Think of one thing you want this year to bring you. Keep it secret.</p>
+          <button id="wishButton" type="button">I made my wish ♡</button>
+        </div>
+      </section>
+
+      <section class="final section">
+        <div class="final-line"><span></span><div class="moon">☾</div><span></span></div>
+        <p class="eyebrow">One last thing</p>
+        <h3>May this year be<br><em>beautifully yours.</em></h3>
+        <p class="final-note">More laughter. More courage. More beautiful surprises.<br>And a thousand small reasons to smile.</p>
+        <p class="final-sign">Happy Birthday, Veda. <span>♡</span></p>
+      </section>
       <footer>made especially for Veda · 08.10.2001</footer>
     </section>
   </main>
   <script src="config.js"></script>
-  <script src="impact-fix.js?v=3"></script>
-  <script src="script.js?v=8"></script>
+  <script src="script.js?v=9"></script>
 </body>
 </html>
