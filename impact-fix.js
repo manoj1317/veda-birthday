@@ -4,7 +4,7 @@
     if(document.getElementById('cinematicMatchLoader')) return;
     const s=document.createElement('script');
     s.id='cinematicMatchLoader';
-    s.src='cinematic-match.js?v=2';
+    s.src='cinematic-match.js?v=3';
     document.body.appendChild(s);
   }
   function alignEnter(){
@@ -26,6 +26,22 @@
         text-align:center !important;
         white-space:nowrap !important;
         background:rgba(48,8,31,.62) !important;
+      }
+      /* Correct the 60% heart position: keep it at the intended upper-right impact point. */
+      #vedaWelcome .vw-heart-target{
+        transform-box:view-box !important;
+        transform-origin:0 0 !important;
+        transform:translate(1450px,205px) scale(.60) rotate(-2deg) !important;
+      }
+      #vedaWelcome .vw-heart-target.hit{
+        animation:correctHeartHit .72s cubic-bezier(.12,.8,.2,1) forwards !important;
+      }
+      @keyframes correctHeartHit{
+        0%{transform:translate(1450px,205px) scale(.60)}
+        18%{transform:translate(1450px,205px) scale(.70)}
+        42%{transform:translate(1450px,205px) scale(.79)}
+        68%{transform:translate(1450px,205px) scale(.66)}
+        100%{transform:translate(1450px,205px) scale(.02);opacity:0}
       }
       /* Softer, colorful heart instead of the heavy white heart. */
       #vedaWelcome .vw-heart-target{
@@ -50,6 +66,9 @@
           width:82vw !important;
           min-width:0 !important;
           height:50px !important;
+        }
+        #vedaWelcome .vw-heart-target{
+          transform:translate(1250px,185px) scale(.52) !important;
         }
       }
     `;
