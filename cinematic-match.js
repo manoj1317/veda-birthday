@@ -15,8 +15,8 @@
   #vedaWelcome .vw-enter{left:5.7vw;top:79vh;padding:15px 40px;min-width:380px;border:2px solid rgba(255,191,222,.82);background:rgba(255,99,169,.07);box-shadow:0 0 22px rgba(255,73,160,.28),inset 0 0 25px rgba(255,91,166,.05);font-size:12px;z-index:30}
   #vedaWelcome .vw-enter.ready{animation:referenceButtonPulse 2s ease-in-out infinite}
   #vedaWelcome .vw-art{z-index:15}
-  /* 60% target heart. The outer group keeps the SVG's original impact point. */
-  #vedaWelcome .vw-heart-target{transform:none !important;filter:drop-shadow(0 0 9px rgba(255,255,255,.8)) drop-shadow(0 0 21px #ff4c9e) drop-shadow(0 0 42px rgba(255,54,150,.30));animation:none !important}
+  /* 60% target heart: keep the original SVG impact point and scale only the heart artwork. */
+  #vedaWelcome .vw-heart-target{transform:translate(1450px,205px) !important;transform-origin:0 0;filter:drop-shadow(0 0 9px rgba(255,255,255,.8)) drop-shadow(0 0 21px #ff4c9e) drop-shadow(0 0 42px rgba(255,54,150,.30));animation:none !important}
   #vedaWelcome .vw-heart-target .heart-scale{transform-box:fill-box;transform-origin:center;transform:scale(.60);animation:referenceHeartFloat60 2.8s ease-in-out infinite}
   #vedaWelcome .vw-heart-target.hit .heart-scale{animation:referenceHeartHit60 .72s cubic-bezier(.12,.8,.2,1) forwards !important}
   #vedaWelcome .vw-heart-target path:nth-child(2){fill:url(#referenceHeartGradient) !important}
@@ -24,9 +24,8 @@
   #vedaWelcome .vw-heart-after,#vedaWelcome .vw-impact{display:none !important}
   #vedaWelcome .vw-arrow-scene{opacity:1 !important}
   #vedaWelcome .vw-arrow-scene.fade{opacity:1 !important}
-  #vedaWelcome .vw-arrow-trail{stroke:url(#arrowGradient);stroke-width:4;filter:url(#arrowGlow);opacity:.98}
-  /* No continuous glowing line: only the moving arrowhead is visible. */
-  #vedaWelcome .vw-arrow-trail,#vedaWelcome .vw-arrow-trail-soft{stroke-dashoffset:1 !important;animation:none !important;opacity:0 !important}
+  /* No continuous glowing line: only the moving arrow itself is visible. */
+  #vedaWelcome .vw-arrow-trail,#vedaWelcome .vw-arrow-trail-soft{stroke-dashoffset:1 !important;animation:none !important;opacity:0 !important;visibility:hidden !important}
   #vedaWelcome .vw-arrow-body{display:none !important}
   #vedaWelcome .vw-arrow-head{fill:#ff7ab5;stroke:#fff;stroke-width:2.2;filter:url(#arrowGlow)}
   #vedaWelcome .vw-arrow-feather{stroke:#ffc2dd;stroke-width:4}
