@@ -15,17 +15,19 @@
   #vedaWelcome .vw-enter{left:5.7vw;top:79vh;padding:15px 40px;min-width:380px;border:2px solid rgba(255,191,222,.82);background:rgba(255,99,169,.07);box-shadow:0 0 22px rgba(255,73,160,.28),inset 0 0 25px rgba(255,91,166,.05);font-size:12px;z-index:30}
   #vedaWelcome .vw-enter.ready{animation:referenceButtonPulse 2s ease-in-out infinite}
   #vedaWelcome .vw-art{z-index:15}
-  /* 60% target heart: same impact point, lighter visual weight. */
-  #vedaWelcome .vw-heart-target{transform-origin:1450px 205px;filter:drop-shadow(0 0 9px rgba(255,255,255,.8)) drop-shadow(0 0 21px #ff4c9e) drop-shadow(0 0 42px rgba(255,54,150,.30));animation:referenceHeartFloat 2.8s ease-in-out infinite}
-  #vedaWelcome .vw-heart-target.hit{animation:referenceHeartHit .72s cubic-bezier(.12,.8,.2,1) forwards !important}
+  /* 60% target heart. The outer group keeps the SVG's original impact point. */
+  #vedaWelcome .vw-heart-target{transform:none !important;filter:drop-shadow(0 0 9px rgba(255,255,255,.8)) drop-shadow(0 0 21px #ff4c9e) drop-shadow(0 0 42px rgba(255,54,150,.30));animation:none !important}
+  #vedaWelcome .vw-heart-target .heart-scale{transform-box:fill-box;transform-origin:center;transform:scale(.60);animation:referenceHeartFloat60 2.8s ease-in-out infinite}
+  #vedaWelcome .vw-heart-target.hit .heart-scale{animation:referenceHeartHit60 .72s cubic-bezier(.12,.8,.2,1) forwards !important}
   #vedaWelcome .vw-heart-target path:nth-child(2){fill:url(#referenceHeartGradient) !important}
   #vedaWelcome .vw-heart-target .vw-heart-glow{fill:#ff6ea9;opacity:.40;filter:blur(7px)}
   #vedaWelcome .vw-heart-after,#vedaWelcome .vw-impact{display:none !important}
   #vedaWelcome .vw-arrow-scene{opacity:1 !important}
   #vedaWelcome .vw-arrow-scene.fade{opacity:1 !important}
   #vedaWelcome .vw-arrow-trail{stroke:url(#arrowGradient);stroke-width:4;filter:url(#arrowGlow);opacity:.98}
-  #vedaWelcome .vw-arrow-trail-soft{stroke:#ff3f9b;stroke-width:13;opacity:.22;filter:url(#arrowBlur)}
-  #vedaWelcome .vw-arrow-body{stroke:#fff6fb;stroke-width:5;filter:url(#arrowGlow)}
+  /* No continuous glowing line: only the moving arrowhead is visible. */
+  #vedaWelcome .vw-arrow-trail,#vedaWelcome .vw-arrow-trail-soft{stroke-dashoffset:1 !important;animation:none !important;opacity:0 !important}
+  #vedaWelcome .vw-arrow-body{display:none !important}
   #vedaWelcome .vw-arrow-head{fill:#ff7ab5;stroke:#fff;stroke-width:2.2;filter:url(#arrowGlow)}
   #vedaWelcome .vw-arrow-feather{stroke:#ffc2dd;stroke-width:4}
   #vedaWelcome .vw-arrow-ribbon{stroke:#ff70ae;stroke-width:2.5}
@@ -44,8 +46,8 @@
   .ref-script{position:absolute;right:5.4vw;bottom:9vh;z-index:20;color:#ff9ac6;font:italic 400 clamp(24px,2.5vw,38px)/1.08 'Cormorant Garamond',serif;text-align:center;transform:rotate(-6deg);text-shadow:0 0 16px rgba(255,87,164,.28);opacity:0;pointer-events:none}
   .ref-script.show{animation:refScript .9s 4.1s ease forwards}
   .ref-script small{display:block;font:400 12px 'DM Sans',sans-serif;letter-spacing:.2em;margin-top:9px;color:#ffb5d3}
-  @keyframes referenceHeartFloat{0%,100%{transform:translate(0,0) scale(.60) rotate(-2deg)}50%{transform:translate(0,-7px) scale(.60) rotate(2deg)}}
-  @keyframes referenceHeartHit{0%{transform:translate(0,0) scale(.60)}18%{transform:translate(0,0) scale(.70)}42%{transform:translate(0,0) scale(.79)}68%{transform:translate(0,0) scale(.66)}100%{transform:translate(0,0) scale(.02);opacity:0}}
+  @keyframes referenceHeartFloat60{0%,100%{transform:scale(.60) rotate(-2deg)}50%{transform:scale(.60) rotate(2deg) translateY(-7px)}}
+  @keyframes referenceHeartHit60{0%{transform:scale(.60)}18%{transform:scale(.70)}42%{transform:scale(.79)}68%{transform:scale(.66)}100%{transform:scale(.02);opacity:0}}
   @keyframes refHeart{0%{opacity:0;transform:translate(1450px,205px) scale(.03)}25%{opacity:1;transform:translate(1450px,205px) scale(.72)}55%{opacity:1;transform:translate(1450px,205px) scale(.57)}100%{opacity:1;transform:translate(1450px,205px) scale(.60)}}
   @keyframes refBurstIn{0%{opacity:0;transform:scale(.08)}15%{opacity:1}45%{opacity:1;transform:scale(1.03)}100%{opacity:.75;transform:scale(1)}}
   @keyframes refRing{0%{opacity:.9;transform:scale(.2)}100%{opacity:0;transform:scale(3.2)}}
@@ -64,6 +66,11 @@
     const target=wrap.querySelector('#vwHeartTarget');
     if(!art||!target) return;
     const ns='http://www.w3.org/2000/svg';
+    /* Put the 60% scaling on an inner group so the original translate(1450,205) remains intact. */
+    const inner=document.createElementNS(ns,'g');
+    inner.classList.add('heart-scale');
+    while(target.firstChild) inner.appendChild(target.firstChild);
+    target.appendChild(inner);
     const burst=document.createElementNS(ns,'g');burst.classList.add('ref-burst');
     burst.innerHTML=`<circle class="ref-ring" cx="1450" cy="205" r="105"/><circle class="ref-ring" cx="1450" cy="205" r="145"/><g class="ref-rays">${Array.from({length:34},(_,i)=>{const a=i*(360/34)*Math.PI/180;const r1=92+(i%3)*10;const r2=190+(i%5)*18;const x1=1450+Math.cos(a)*r1,y1=205+Math.sin(a)*r1,x2=1450+Math.cos(a)*r2,y2=205+Math.sin(a)*r2;return `<line class="ref-ray ${i%4===0?'white':''}" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke-width="${i%4===0?2:3}"/>`;}).join('')}</g>`;
     art.appendChild(burst);
