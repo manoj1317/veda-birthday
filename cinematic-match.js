@@ -1,6 +1,6 @@
 (function(){
   const css = `
-  /* Cinematic reference match: deep wine/pink, large heart, curved arrow, explosive heart burst. */
+  /* Cinematic reference match: deep wine/pink, curved arrow, softer 60% heart. */
   #vedaWelcome{background:radial-gradient(circle at 84% 22%,rgba(255,44,145,.26),transparent 25%),radial-gradient(circle at 44% 76%,rgba(255,48,143,.12),transparent 34%),linear-gradient(135deg,#12020d 0%,#3b0a28 50%,#090207 100%) !important}
   #vedaWelcome .vw-stars{opacity:.32;background-size:38px 38px}
   #vedaWelcome .vw-glow{right:0;top:0;width:52vw;height:52vw;background:rgba(255,44,145,.22);filter:blur(78px)}
@@ -15,11 +15,11 @@
   #vedaWelcome .vw-enter{left:5.7vw;top:79vh;padding:15px 40px;min-width:380px;border:2px solid rgba(255,191,222,.82);background:rgba(255,99,169,.07);box-shadow:0 0 22px rgba(255,73,160,.28),inset 0 0 25px rgba(255,91,166,.05);font-size:12px;z-index:30}
   #vedaWelcome .vw-enter.ready{animation:referenceButtonPulse 2s ease-in-out infinite}
   #vedaWelcome .vw-art{z-index:15}
-  /* Smaller, softer target heart: keep the same impact point and arrow alignment. */
-  #vedaWelcome .vw-heart-target{transform-origin:1450px 205px;filter:drop-shadow(0 0 12px #fff) drop-shadow(0 0 28px #ff4c9e) drop-shadow(0 0 58px rgba(255,54,150,.42));animation:referenceHeartFloat 2.8s ease-in-out infinite}
+  /* 60% target heart: same impact point, lighter visual weight. */
+  #vedaWelcome .vw-heart-target{transform-origin:1450px 205px;filter:drop-shadow(0 0 9px rgba(255,255,255,.8)) drop-shadow(0 0 21px #ff4c9e) drop-shadow(0 0 42px rgba(255,54,150,.30));animation:referenceHeartFloat 2.8s ease-in-out infinite}
   #vedaWelcome .vw-heart-target.hit{animation:referenceHeartHit .72s cubic-bezier(.12,.8,.2,1) forwards !important}
   #vedaWelcome .vw-heart-target path:nth-child(2){fill:url(#referenceHeartGradient) !important}
-  #vedaWelcome .vw-heart-target .vw-heart-glow{fill:#ff6ea9;opacity:.48;filter:blur(8px)}
+  #vedaWelcome .vw-heart-target .vw-heart-glow{fill:#ff6ea9;opacity:.40;filter:blur(7px)}
   #vedaWelcome .vw-heart-after,#vedaWelcome .vw-impact{display:none !important}
   #vedaWelcome .vw-arrow-scene{opacity:1 !important}
   #vedaWelcome .vw-arrow-scene.fade{opacity:1 !important}
@@ -35,7 +35,7 @@
   .ref-ray.white{stroke:#fff;opacity:.9}
   .ref-ring{fill:none;stroke:#ff8fc2;stroke-linecap:round;opacity:0;transform-origin:1450px 205px}
   .ref-ring.show{animation:refRing .95s ease-out forwards}
-  .ref-heart{opacity:0;transform-origin:1450px 205px;filter:drop-shadow(0 0 10px #fff) drop-shadow(0 0 25px #ff4c9e)}
+  .ref-heart{opacity:0;transform-origin:1450px 205px;filter:drop-shadow(0 0 8px rgba(255,255,255,.85)) drop-shadow(0 0 20px #ff4c9e)}
   .ref-heart.show{animation:refHeart .7s cubic-bezier(.12,.86,.18,1) forwards}
   .ref-mini-heart{position:absolute;z-index:24;color:#ff8fbe;text-shadow:0 0 14px rgba(255,78,165,.9);opacity:0;pointer-events:none}
   .ref-mini-heart.show{animation:refMini 1.9s cubic-bezier(.12,.7,.18,1) forwards}
@@ -44,9 +44,9 @@
   .ref-script{position:absolute;right:5.4vw;bottom:9vh;z-index:20;color:#ff9ac6;font:italic 400 clamp(24px,2.5vw,38px)/1.08 'Cormorant Garamond',serif;text-align:center;transform:rotate(-6deg);text-shadow:0 0 16px rgba(255,87,164,.28);opacity:0;pointer-events:none}
   .ref-script.show{animation:refScript .9s 4.1s ease forwards}
   .ref-script small{display:block;font:400 12px 'DM Sans',sans-serif;letter-spacing:.2em;margin-top:9px;color:#ffb5d3}
-  @keyframes referenceHeartFloat{0%,100%{transform:translate(0,0) scale(.78) rotate(-2deg)}50%{transform:translate(0,-7px) scale(.78) rotate(2deg)}}
-  @keyframes referenceHeartHit{0%{transform:translate(0,0) scale(.78)}18%{transform:translate(0,0) scale(.9)}42%{transform:translate(0,0) scale(1.03)}68%{transform:translate(0,0) scale(.83)}100%{transform:translate(0,0) scale(.02);opacity:0}}
-  @keyframes refHeart{0%{opacity:0;transform:translate(1450px,205px) scale(.03)}25%{opacity:1;transform:translate(1450px,205px) scale(.94)}55%{opacity:1;transform:translate(1450px,205px) scale(.74)}100%{opacity:1;transform:translate(1450px,205px) scale(.78)}}
+  @keyframes referenceHeartFloat{0%,100%{transform:translate(0,0) scale(.60) rotate(-2deg)}50%{transform:translate(0,-7px) scale(.60) rotate(2deg)}}
+  @keyframes referenceHeartHit{0%{transform:translate(0,0) scale(.60)}18%{transform:translate(0,0) scale(.70)}42%{transform:translate(0,0) scale(.79)}68%{transform:translate(0,0) scale(.66)}100%{transform:translate(0,0) scale(.02);opacity:0}}
+  @keyframes refHeart{0%{opacity:0;transform:translate(1450px,205px) scale(.03)}25%{opacity:1;transform:translate(1450px,205px) scale(.72)}55%{opacity:1;transform:translate(1450px,205px) scale(.57)}100%{opacity:1;transform:translate(1450px,205px) scale(.60)}}
   @keyframes refBurstIn{0%{opacity:0;transform:scale(.08)}15%{opacity:1}45%{opacity:1;transform:scale(1.03)}100%{opacity:.75;transform:scale(1)}}
   @keyframes refRing{0%{opacity:.9;transform:scale(.2)}100%{opacity:0;transform:scale(3.2)}}
   @keyframes refMini{0%{opacity:0;transform:translate(0,0) scale(.2) rotate(0)}10%{opacity:1}100%{opacity:0;transform:translate(var(--x),var(--y)) scale(1.1) rotate(var(--r))}}
