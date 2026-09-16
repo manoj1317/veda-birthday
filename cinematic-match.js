@@ -15,10 +15,11 @@
   #vedaWelcome .vw-enter{left:5.7vw;top:79vh;padding:15px 40px;min-width:380px;border:2px solid rgba(255,191,222,.82);background:rgba(255,99,169,.07);box-shadow:0 0 22px rgba(255,73,160,.28),inset 0 0 25px rgba(255,91,166,.05);font-size:12px;z-index:30}
   #vedaWelcome .vw-enter.ready{animation:referenceButtonPulse 2s ease-in-out infinite}
   #vedaWelcome .vw-art{z-index:15}
-  #vedaWelcome .vw-heart-target{transform-origin:0 0;filter:drop-shadow(0 0 15px #fff) drop-shadow(0 0 34px #ff4c9e) drop-shadow(0 0 75px rgba(255,54,150,.55));animation:referenceHeartFloat 2.8s ease-in-out infinite}
+  /* Smaller, softer target heart: keep the same impact point and arrow alignment. */
+  #vedaWelcome .vw-heart-target{transform-origin:1450px 205px;filter:drop-shadow(0 0 12px #fff) drop-shadow(0 0 28px #ff4c9e) drop-shadow(0 0 58px rgba(255,54,150,.42));animation:referenceHeartFloat 2.8s ease-in-out infinite}
   #vedaWelcome .vw-heart-target.hit{animation:referenceHeartHit .72s cubic-bezier(.12,.8,.2,1) forwards !important}
-  #vedaWelcome .vw-heart-target path:nth-child(2){fill:#fff !important}
-  #vedaWelcome .vw-heart-target .vw-heart-glow{fill:#ff6ea9;opacity:.62;filter:blur(8px)}
+  #vedaWelcome .vw-heart-target path:nth-child(2){fill:url(#referenceHeartGradient) !important}
+  #vedaWelcome .vw-heart-target .vw-heart-glow{fill:#ff6ea9;opacity:.48;filter:blur(8px)}
   #vedaWelcome .vw-heart-after,#vedaWelcome .vw-impact{display:none !important}
   #vedaWelcome .vw-arrow-scene{opacity:1 !important}
   #vedaWelcome .vw-arrow-scene.fade{opacity:1 !important}
@@ -34,7 +35,7 @@
   .ref-ray.white{stroke:#fff;opacity:.9}
   .ref-ring{fill:none;stroke:#ff8fc2;stroke-linecap:round;opacity:0;transform-origin:1450px 205px}
   .ref-ring.show{animation:refRing .95s ease-out forwards}
-  .ref-heart{opacity:0;transform-origin:1450px 205px;filter:drop-shadow(0 0 12px #fff) drop-shadow(0 0 32px #ff4c9e)}
+  .ref-heart{opacity:0;transform-origin:1450px 205px;filter:drop-shadow(0 0 10px #fff) drop-shadow(0 0 25px #ff4c9e)}
   .ref-heart.show{animation:refHeart .7s cubic-bezier(.12,.86,.18,1) forwards}
   .ref-mini-heart{position:absolute;z-index:24;color:#ff8fbe;text-shadow:0 0 14px rgba(255,78,165,.9);opacity:0;pointer-events:none}
   .ref-mini-heart.show{animation:refMini 1.9s cubic-bezier(.12,.7,.18,1) forwards}
@@ -43,9 +44,9 @@
   .ref-script{position:absolute;right:5.4vw;bottom:9vh;z-index:20;color:#ff9ac6;font:italic 400 clamp(24px,2.5vw,38px)/1.08 'Cormorant Garamond',serif;text-align:center;transform:rotate(-6deg);text-shadow:0 0 16px rgba(255,87,164,.28);opacity:0;pointer-events:none}
   .ref-script.show{animation:refScript .9s 4.1s ease forwards}
   .ref-script small{display:block;font:400 12px 'DM Sans',sans-serif;letter-spacing:.2em;margin-top:9px;color:#ffb5d3}
-  @keyframes referenceHeartFloat{0%,100%{transform:translate(0,0) rotate(-2deg)}50%{transform:translate(0,-8px) rotate(2deg)}}
-  @keyframes referenceHeartHit{0%{transform:translate(0,0) scale(1)}18%{transform:translate(0,0) scale(1.12)}42%{transform:translate(0,0) scale(1.32)}68%{transform:translate(0,0) scale(1.06)}100%{transform:translate(0,0) scale(.03);opacity:0}}
-  @keyframes refHeart{0%{opacity:0;transform:translate(1450px,205px) scale(.04)}25%{opacity:1;transform:translate(1450px,205px) scale(1.22)}55%{opacity:1;transform:translate(1450px,205px) scale(.92)}100%{opacity:1;transform:translate(1450px,205px) scale(1)}}
+  @keyframes referenceHeartFloat{0%,100%{transform:translate(0,0) scale(.78) rotate(-2deg)}50%{transform:translate(0,-7px) scale(.78) rotate(2deg)}}
+  @keyframes referenceHeartHit{0%{transform:translate(0,0) scale(.78)}18%{transform:translate(0,0) scale(.9)}42%{transform:translate(0,0) scale(1.03)}68%{transform:translate(0,0) scale(.83)}100%{transform:translate(0,0) scale(.02);opacity:0}}
+  @keyframes refHeart{0%{opacity:0;transform:translate(1450px,205px) scale(.03)}25%{opacity:1;transform:translate(1450px,205px) scale(.94)}55%{opacity:1;transform:translate(1450px,205px) scale(.74)}100%{opacity:1;transform:translate(1450px,205px) scale(.78)}}
   @keyframes refBurstIn{0%{opacity:0;transform:scale(.08)}15%{opacity:1}45%{opacity:1;transform:scale(1.03)}100%{opacity:.75;transform:scale(1)}}
   @keyframes refRing{0%{opacity:.9;transform:scale(.2)}100%{opacity:0;transform:scale(3.2)}}
   @keyframes refMini{0%{opacity:0;transform:translate(0,0) scale(.2) rotate(0)}10%{opacity:1}100%{opacity:0;transform:translate(var(--x),var(--y)) scale(1.1) rotate(var(--r))}}
@@ -66,7 +67,9 @@
     const burst=document.createElementNS(ns,'g');burst.classList.add('ref-burst');
     burst.innerHTML=`<circle class="ref-ring" cx="1450" cy="205" r="105"/><circle class="ref-ring" cx="1450" cy="205" r="145"/><g class="ref-rays">${Array.from({length:34},(_,i)=>{const a=i*(360/34)*Math.PI/180;const r1=92+(i%3)*10;const r2=190+(i%5)*18;const x1=1450+Math.cos(a)*r1,y1=205+Math.sin(a)*r1,x2=1450+Math.cos(a)*r2,y2=205+Math.sin(a)*r2;return `<line class="ref-ray ${i%4===0?'white':''}" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke-width="${i%4===0?2:3}"/>`;}).join('')}</g>`;
     art.appendChild(burst);
-    const heart=document.createElementNS(ns,'g');heart.classList.add('ref-heart');heart.innerHTML='<path d="M0 115C-18 98-108 51-108-16C-108-72-45-91 0-39C45-91 108-72 108-16C108 51 18 98 0 115Z" fill="#fff"/><path d="M-48-28C-26-55 2-55 27-37" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" opacity=".9"/>';art.appendChild(heart);
+    const defs=art.querySelector('defs');
+    if(defs && !defs.querySelector('#referenceHeartGradient')){const grad=document.createElementNS(ns,'linearGradient');grad.id='referenceHeartGradient';grad.setAttribute('x1','0');grad.setAttribute('y1','0');grad.setAttribute('x2','1');grad.setAttribute('y2','1');grad.innerHTML='<stop offset="0" stop-color="#fff"/><stop offset=".45" stop-color="#ffd8ea"/><stop offset="1" stop-color="#ff9fc9"/>';defs.appendChild(grad)}
+    const heart=document.createElementNS(ns,'g');heart.classList.add('ref-heart');heart.innerHTML='<path d="M0 88C-14 75-84 39-84-13C-84-56-35-70 0-30C35-70 84-56 84-13C84 39 14 75 0 88Z" fill="url(#referenceHeartGradient)"/><path d="M-38-23C-20-46 2-45 22-31" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" opacity=".72"/>';art.appendChild(heart);
     const script=document.createElement('div');script.className='ref-script';script.innerHTML='Let Happiness<br>Find You...<small>♥</small>';wrap.appendChild(script);
     function fire(){
       target.classList.add('hit');burst.classList.add('show');burst.querySelectorAll('.ref-ring').forEach((r,i)=>{r.style.animationDelay=(i*.08)+'s';r.classList.add('show')});heart.classList.add('show');
