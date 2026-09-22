@@ -211,6 +211,7 @@ function buildJourney(){
     title.innerHTML=page.title;
     text.textContent=page.text;
     count.textContent=`${pageIndex+1} / ${pages.length}`;
+    journey.className=`page-${pageIndex+1}`;
     progress.style.width=`${((pageIndex+1)/pages.length)*100}%`;
     options.innerHTML='';
     next.textContent=pageIndex===pages.length-1?'All four opened ♡':'Open all four to continue';
