@@ -122,9 +122,137 @@ function buildWelcome(){
       gate.classList.add('hidden');
       site.classList.remove('hidden');
       window.scrollTo(0,0);
-      startPageEffects();
+      buildJourney();
     },650);
   });
+}
+
+
+function buildJourney(){
+  const old=[...site.children].filter(el=>!el.classList.contains('topbar'));
+  old.forEach(el=>el.remove());
+
+  const pages=[
+    {
+      eyebrow:'01 · A little beginning',
+      title:'Choose a little<br><em>door into my heart.</em>',
+      text:'There is no wrong choice. Open all four, one by one, and each will leave you a tiny message from me.',
+      options:[
+        ['♡','Your smile','You have this unfair little superpower of making ordinary moments feel worth remembering.'],
+        ['✦','Your laugh','Some sounds just make a day softer. Yours is one of them.'],
+        ['∞','Your heart','The warmth you carry is one of the things I quietly treasure most.'],
+        ['☾','Your presence','Even doing nothing feels different when you are there.']
+      ]
+    },
+    {
+      eyebrow:'02 · The little things',
+      title:'Four tiny reasons<br><em>I keep smiling.</em>',
+      text:'Open every one. Think of these as four folded notes I slipped into your birthday universe.',
+      options:[
+        ['01','The way you care','You notice little things, and somehow those little things become big things to me.'],
+        ['02','The way you dream','I hope you always make room for the dreams that make your eyes light up.'],
+        ['03','The way you tease','That playful side of you has created more smiles than you probably realize. 😛'],
+        ['04','The way you are','No grand explanation needed. I simply love the person you are.']
+      ]
+    },
+    {
+      eyebrow:'03 · Our little story',
+      title:'Some moments deserve<br><em>their own page.</em>',
+      text:'Four doors. Four memories. Open them all.',
+      options:[
+        ['03 FEB','The bike ride','A ride to your friend’s marriage became the road where I finally said, “I love you.”'],
+        ['♡','The little ring','You were already wearing the ring. I took it, proposed, and put that same ring back on you. You laughed. 😛'],
+        ['14 FEB','The second question','I asked again on Valentine’s Day — and this time, you gave me the answer I had been waiting for.'],
+        ['YES','The answer','That little “yes” turned a nervous question into one of my favorite memories. ♡']
+      ]
+    },
+    {
+      eyebrow:'04 · For your birthday',
+      title:'Four wishes<br><em>for my Veda.</em>',
+      text:'Open every wish. Then the next page will be waiting for you.',
+      options:[
+        ['♡','More love','May you always feel surrounded by the kind of love that makes you feel safe and seen.'],
+        ['✦','More happiness','May ordinary Tuesdays surprise you with reasons to smile.'],
+        ['∞','More dreams','May you chase beautiful things without ever making yourself smaller for them.'],
+        ['→','More adventures','May there be many more roads, stories, laughs and memories waiting for us.']
+      ]
+    },
+    {
+      eyebrow:'05 · Your little universe',
+      title:'And now,<br><em>one last little page.</em>',
+      text:'You opened every door. So here is the part I want you to keep.',
+      options:[
+        ['♡','Remember this','You are deeply, wonderfully special to me.'],
+        ['✦','Remember today','08 October 2001 — the day the world got my Veda.'],
+        ['∞','Remember us','A bike ride, a ring, a laugh, a second question… and a yes.'],
+        ['♥','Remember always','Whatever chapters come next, I hope they are filled with beautiful moments.']
+      ]
+    }
+  ];
+
+  let pageIndex=0;
+  const journey=document.createElement('section');
+  journey.id='birthdayJourney';
+  journey.setAttribute('aria-label','Veda birthday interactive journey');
+  journey.innerHTML='<div class="journey-shell"><div class="journey-top"><span class="journey-progress"></span><span class="journey-count"></span></div><div class="journey-copy"><p class="journey-eyebrow"></p><h2 class="journey-title"></h2><p class="journey-text"></p></div><div class="journey-options"></div><div class="journey-next">Open all four to continue</div></div>';
+  site.appendChild(journey);
+
+  const progress=journey.querySelector('.journey-progress');
+  const count=journey.querySelector('.journey-count');
+  const eyebrow=journey.querySelector('.journey-eyebrow');
+  const title=journey.querySelector('.journey-title');
+  const text=journey.querySelector('.journey-text');
+  const options=journey.querySelector('.journey-options');
+  const next=journey.querySelector('.journey-next');
+
+  function renderPage(){
+    const page=pages[pageIndex];
+    eyebrow.textContent=page.eyebrow;
+    title.innerHTML=page.title;
+    text.textContent=page.text;
+    count.textContent=`${pageIndex+1} / ${pages.length}`;
+    progress.style.width=`${((pageIndex+1)/pages.length)*100}%`;
+    options.innerHTML='';
+    next.textContent=pageIndex===pages.length-1?'All four opened ♡':'Open all four to continue';
+    next.classList.remove('ready');
+
+    page.options.forEach((item,i)=>{
+      const button=document.createElement('button');
+      button.type='button';
+      button.className='journey-option';
+      button.innerHTML=`<span class="journey-icon">${item[0]}</span><span class="journey-option-copy"><strong>${item[1]}</strong><small>tap to open</small></span><span class="journey-arrow">↗</span><span class="journey-message">${item[2]}</span>`;
+      button.addEventListener('click',()=>{
+        if(button.classList.contains('opened'))return;
+        button.classList.add('opened');
+        button.querySelector('.journey-option-copy small').textContent='opened ♡';
+        const opened=options.querySelectorAll('.journey-option.opened').length;
+        if(opened===4){
+          next.classList.add('ready');
+          next.textContent=pageIndex===pages.length-1?'Enter your little universe ♡':'Continue to the next page →';
+          setTimeout(()=>next.focus(),120);
+        }
+      });
+      options.appendChild(button);
+    });
+  }
+
+  next.addEventListener('click',()=>{
+    if(!next.classList.contains('ready'))return;
+    if(pageIndex<pages.length-1){
+      pageIndex++;
+      renderPage();
+      window.scrollTo({top:0,behavior:'smooth'});
+    }else{
+      showFinalBirthday();
+    }
+  });
+
+  function showFinalBirthday(){
+    journey.innerHTML=`<div class="journey-finale"><p class="journey-eyebrow">08 · OCTOBER · 2001</p><div class="final-heart">♡</div><h2>Happy Birthday,<br><em>my Veda.</em></h2><p>You opened every little door. Now keep this one:</p><blockquote>“May this year bring you more love, more happiness, more dreams, more adventures — and countless beautiful moments.”</blockquote><p class="final-small">With all my love, always. ♡</p><button class="final-restart" type="button">Start the little universe again</button></div>`;
+    journey.querySelector('.final-restart').addEventListener('click',()=>{pageIndex=0;renderPage();});
+  }
+
+  renderPage();
 }
 
 function startPageEffects(){
