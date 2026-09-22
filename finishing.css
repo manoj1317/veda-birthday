@@ -249,3 +249,41 @@
   #birthdayJourney.page-5:after{right:5%;top:6%;width:82px;height:82px}
   #birthdayJourney .journey-shell:after{bottom:1%;font-size:14px;letter-spacing:.65em}
 }
+
+
+/* Veda photo chapters — each page gets its own portrait background */
+#birthdayJourney{
+  background:
+    linear-gradient(90deg,rgba(8,5,15,.78),rgba(13,7,18,.55) 48%,rgba(8,5,15,.76)),
+    var(--journey-photo),
+    var(--journey-bg);
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+}
+#birthdayJourney:before{
+  background:
+    radial-gradient(circle at 18% 20%,var(--journey-color-a),transparent 25%),
+    radial-gradient(circle at 82% 22%,var(--journey-color-b),transparent 26%),
+    radial-gradient(circle at 70% 82%,var(--journey-color-c),transparent 30%),
+    linear-gradient(135deg,rgba(8,4,13,.34),rgba(10,5,17,.62));
+  mix-blend-mode:screen;
+  opacity:.72;
+}
+#birthdayJourney .journey-option{
+  background:linear-gradient(145deg,rgba(18,10,28,.64),rgba(28,14,38,.42));
+  backdrop-filter:blur(14px) saturate(1.15);
+  -webkit-backdrop-filter:blur(14px) saturate(1.15);
+  box-shadow:0 14px 45px rgba(0,0,0,.18);
+}
+#birthdayJourney .journey-copy{
+  text-shadow:0 2px 22px rgba(0,0,0,.38);
+}
+#birthdayJourney.page-1{--journey-photo:url('veda-page-1.jpg');}
+#birthdayJourney.page-2{--journey-photo:url('veda-page-2.jpg');}
+#birthdayJourney.page-3{--journey-photo:url('veda-page-3.jpg');}
+#birthdayJourney.page-4{--journey-photo:url('veda-page-4.jpg');}
+#birthdayJourney.page-5{--journey-photo:url('veda-page-5.jpg');}
+@media(max-width:700px){
+  #birthdayJourney{background-attachment:scroll;background-position:center top;}
+}
