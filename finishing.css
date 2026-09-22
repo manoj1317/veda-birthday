@@ -482,3 +482,142 @@
     filter:blur(13px);
   }
 }
+
+
+/* Final birthday page — editorial split composition for maximum readability */
+#birthdayJourney.page-5{
+  background-image:var(--journey-photo);
+  background-size:auto 112%;
+  background-position:72% center;
+  background-repeat:no-repeat;
+  background-color:#211219;
+}
+#birthdayJourney.page-5:before{
+  content:'';
+  position:absolute;
+  inset:-35px;
+  z-index:0;
+  background-image:
+    linear-gradient(90deg,
+      rgba(24,10,20,.97) 0%,
+      rgba(31,13,23,.91) 30%,
+      rgba(39,18,27,.70) 47%,
+      rgba(39,18,27,.20) 68%,
+      rgba(20,8,17,.48) 100%),
+    var(--journey-photo);
+  background-size:cover,cover;
+  background-position:center,center;
+  filter:blur(17px);
+  transform:scale(1.04);
+  opacity:.72;
+}
+#birthdayJourney.page-5 .journey-shell{
+  width:min(1120px,calc(100% - 64px));
+  min-height:calc(100vh - 94px);
+  padding:28px 0 38px;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+}
+#birthdayJourney.page-5 .journey-finale{
+  position:relative;
+  z-index:4;
+  width:min(650px,58%);
+  margin:0;
+  padding:20px 0 30px;
+  text-align:center;
+}
+#birthdayJourney.page-5 .journey-eyebrow{
+  color:#f5ddbf;
+  text-shadow:0 2px 12px rgba(0,0,0,.8);
+}
+#birthdayJourney.page-5 .final-heart{
+  color:#ff9fc8;
+  text-shadow:0 0 32px rgba(255,115,176,.34);
+}
+#birthdayJourney.page-5 .journey-finale h2{
+  color:#fff8f0;
+  text-shadow:0 5px 30px rgba(0,0,0,.72);
+  margin:14px 0 22px;
+}
+#birthdayJourney.page-5 .journey-finale h2 em{
+  color:#ff9fc8;
+  text-shadow:0 4px 24px rgba(255,91,163,.35);
+}
+#birthdayJourney.page-5 .journey-finale>p:not(.journey-eyebrow):not(.final-small){
+  color:#f8e9e2;
+  text-shadow:0 2px 13px rgba(0,0,0,.82);
+}
+#birthdayJourney.page-5 .journey-finale blockquote{
+  color:#fff5ef;
+  border-left-color:#f3c98f;
+  text-shadow:0 2px 13px rgba(0,0,0,.82);
+  background:rgba(26,10,21,.18);
+}
+#birthdayJourney.page-5 .journey-finale .final-small{
+  color:#f7dfe7;
+  text-shadow:0 2px 12px rgba(0,0,0,.78);
+}
+#birthdayJourney.page-5 .final-restart{
+  color:#24111b;
+  background:#ff9fc8;
+  border:0;
+  box-shadow:0 12px 35px rgba(255,100,167,.24);
+  padding:14px 28px;
+  border-radius:999px;
+  font:600 11px 'DM Sans',sans-serif;
+  letter-spacing:.05em;
+  cursor:pointer;
+}
+#birthdayJourney.page-5 .final-restart:hover{
+  background:#ffb6d3;
+  transform:translateY(-2px);
+}
+#birthdayJourney.page-5:after{
+  display:block;
+  content:'';
+  position:absolute;
+  right:8%;
+  top:8%;
+  z-index:2;
+  width:clamp(100px,10vw,150px);
+  height:clamp(100px,10vw,150px);
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 27% 30%,rgba(105,75,48,.13) 0 2px,transparent 3px),
+    radial-gradient(circle at 67% 60%,rgba(105,75,48,.10) 0 3px,transparent 4px),
+    radial-gradient(circle at 50% 21%,rgba(105,75,48,.08) 0 2px,transparent 3px),
+    #fff4d5;
+  box-shadow:0 0 0 1px rgba(255,255,255,.16),0 0 38px rgba(255,210,133,.42),0 0 110px rgba(255,195,112,.26);
+  opacity:.96;
+  animation:moonDrift 7s ease-in-out infinite;
+}
+@media(max-width:700px){
+  #birthdayJourney.page-5{
+    background-size:auto 92%;
+    background-position:62% 18%;
+  }
+  #birthdayJourney.page-5 .journey-shell{
+    width:calc(100% - 30px);
+    min-height:calc(100vh - 80px);
+    padding:24px 0 36px;
+  }
+  #birthdayJourney.page-5 .journey-finale{
+    width:100%;
+    max-width:560px;
+    margin:0 auto;
+    padding:28px 8px 40px;
+  }
+  #birthdayJourney.page-5:before{
+    background-image:
+      linear-gradient(180deg,rgba(24,10,20,.72) 0%,rgba(24,10,20,.84) 52%,rgba(24,10,20,.94) 100%),
+      var(--journey-photo);
+    background-position:center,center top;
+  }
+  #birthdayJourney.page-5:after{
+    right:5%;
+    top:5%;
+    width:82px;
+    height:82px;
+  }
+}
