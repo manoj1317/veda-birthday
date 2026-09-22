@@ -91,3 +91,161 @@
 #birthdayJourney.page-1 .journey-option,#birthdayJourney.page-2 .journey-option,#birthdayJourney.page-3 .journey-option,#birthdayJourney.page-4 .journey-option,#birthdayJourney.page-5 .journey-option{backdrop-filter:blur(10px)}
 @keyframes moonDrift{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(-10px,8px,0)}}
 @media(max-width:700px){#birthdayJourney:after{right:5%;top:6%;width:78px;height:78px}.journey-shell:before{display:none}}
+
+
+/* Richer celestial journey — stars + colorful nebula, with moon reserved for the finale */
+#birthdayJourney{
+  background:var(--journey-bg);
+  transition:background 1s ease;
+}
+#birthdayJourney:before{
+  inset:0;
+  z-index:-3;
+  opacity:1;
+  background:
+    radial-gradient(circle at 18% 22%,var(--journey-color-a),transparent 22%),
+    radial-gradient(circle at 82% 20%,var(--journey-color-b),transparent 24%),
+    radial-gradient(circle at 72% 78%,var(--journey-color-c),transparent 28%),
+    radial-gradient(circle at 25% 88%,var(--journey-color-d),transparent 25%),
+    linear-gradient(135deg,var(--journey-bg),var(--journey-bg2));
+  transition:background 1s ease;
+}
+#birthdayJourney:after{
+  display:none;
+}
+#birthdayJourney .journey-shell:before{
+  content:'';
+  position:absolute;
+  inset:-8% -5%;
+  z-index:-1;
+  height:116%;
+  width:110%;
+  pointer-events:none;
+  opacity:.78;
+  background-image:
+    radial-gradient(circle at 8% 12%,rgba(255,255,255,.9) 0 1px,transparent 1.8px),
+    radial-gradient(circle at 17% 38%,rgba(255,214,239,.8) 0 1.2px,transparent 2px),
+    radial-gradient(circle at 28% 9%,rgba(255,255,255,.7) 0 1px,transparent 1.8px),
+    radial-gradient(circle at 39% 28%,rgba(214,231,255,.9) 0 1.2px,transparent 2px),
+    radial-gradient(circle at 51% 12%,rgba(255,255,255,.8) 0 1px,transparent 1.8px),
+    radial-gradient(circle at 63% 35%,rgba(255,230,177,.85) 0 1.2px,transparent 2px),
+    radial-gradient(circle at 76% 10%,rgba(255,255,255,.75) 0 1px,transparent 1.8px),
+    radial-gradient(circle at 91% 30%,rgba(225,213,255,.9) 0 1.2px,transparent 2px),
+    radial-gradient(circle at 12% 70%,rgba(255,255,255,.7) 0 1px,transparent 1.8px),
+    radial-gradient(circle at 24% 88%,rgba(255,218,239,.8) 0 1.2px,transparent 2px),
+    radial-gradient(circle at 44% 72%,rgba(255,255,255,.85) 0 1px,transparent 1.8px),
+    radial-gradient(circle at 58% 91%,rgba(210,238,255,.8) 0 1.2px,transparent 2px),
+    radial-gradient(circle at 71% 65%,rgba(255,255,255,.75) 0 1px,transparent 1.8px),
+    radial-gradient(circle at 87% 82%,rgba(255,226,185,.85) 0 1.2px,transparent 2px);
+  animation:starDrift 12s ease-in-out infinite alternate;
+}
+#birthdayJourney .journey-shell:after{
+  content:'✦     ✧             ·                 ✦       ·       ✧';
+  position:absolute;
+  left:-8%;
+  right:-8%;
+  bottom:4%;
+  height:110px;
+  z-index:-1;
+  pointer-events:none;
+  color:var(--journey-stars);
+  font:18px/2 'Cormorant Garamond',serif;
+  letter-spacing:1.1em;
+  opacity:.45;
+  text-shadow:0 0 12px currentColor;
+  transform:rotate(-4deg);
+  animation:constellationFloat 9s ease-in-out infinite;
+}
+#birthdayJourney .journey-shell{
+  position:relative;
+  z-index:1;
+}
+#birthdayJourney.page-1 .journey-shell:after,
+#birthdayJourney.page-3 .journey-shell:after{
+  color:#ffd0e7;
+}
+#birthdayJourney.page-2 .journey-shell:after{
+  color:#c8c2ff;
+}
+#birthdayJourney.page-4 .journey-shell:after{
+  color:#a9f4df;
+}
+#birthdayJourney.page-5 .journey-shell:after{
+  color:#ffe2ad;
+}
+
+/* The moon exists only on the final birthday page. */
+#birthdayJourney.page-1:after,
+#birthdayJourney.page-2:after,
+#birthdayJourney.page-3:after,
+#birthdayJourney.page-4:after{
+  display:none;
+}
+#birthdayJourney.page-5:after{
+  display:block;
+  content:'';
+  right:8%;
+  top:9%;
+  z-index:-1;
+  width:clamp(100px,11vw,155px);
+  height:clamp(100px,11vw,155px);
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 28% 32%,rgba(120,91,63,.12) 0 2px,transparent 3px),
+    radial-gradient(circle at 66% 61%,rgba(120,91,63,.10) 0 3px,transparent 4px),
+    radial-gradient(circle at 50% 22%,rgba(120,91,63,.08) 0 2px,transparent 3px),
+    var(--journey-moon);
+  box-shadow:0 0 0 1px rgba(255,255,255,.12),0 0 40px var(--journey-moon-glow),0 0 120px var(--journey-moon-glow);
+  opacity:.94;
+  animation:moonDrift 7s ease-in-out infinite;
+}
+.journey-finale:before{
+  display:none;
+}
+#birthdayJourney.page-1{
+  --journey-color-a:rgba(255,70,161,.25);
+  --journey-color-b:rgba(145,74,255,.20);
+  --journey-color-c:rgba(255,126,205,.16);
+  --journey-color-d:rgba(77,107,255,.13);
+  --journey-stars:#ffd7ee;
+}
+#birthdayJourney.page-2{
+  --journey-color-a:rgba(102,88,255,.28);
+  --journey-color-b:rgba(46,188,255,.19);
+  --journey-color-c:rgba(174,91,255,.17);
+  --journey-color-d:rgba(69,115,255,.14);
+  --journey-stars:#d9d5ff;
+}
+#birthdayJourney.page-3{
+  --journey-color-a:rgba(255,83,91,.24);
+  --journey-color-b:rgba(255,157,56,.21);
+  --journey-color-c:rgba(255,91,166,.16);
+  --journey-color-d:rgba(124,63,255,.13);
+  --journey-stars:#ffe0c4;
+}
+#birthdayJourney.page-4{
+  --journey-color-a:rgba(42,221,180,.22);
+  --journey-color-b:rgba(59,130,255,.20);
+  --journey-color-c:rgba(113,245,207,.15);
+  --journey-color-d:rgba(121,83,255,.13);
+  --journey-stars:#caffef;
+}
+#birthdayJourney.page-5{
+  --journey-color-a:rgba(255,171,58,.24);
+  --journey-color-b:rgba(255,75,154,.19);
+  --journey-color-c:rgba(255,204,99,.18);
+  --journey-color-d:rgba(133,68,255,.12);
+  --journey-stars:#ffe8b9;
+}
+@keyframes starDrift{
+  from{transform:translate3d(0,0,0) scale(1)}
+  to{transform:translate3d(-10px,7px,0) scale(1.025)}
+}
+@keyframes constellationFloat{
+  0%,100%{transform:translate3d(0,0,0) rotate(-4deg);opacity:.34}
+  50%{transform:translate3d(12px,-7px,0) rotate(-2deg);opacity:.58}
+}
+@media(max-width:700px){
+  #birthdayJourney.page-5:after{right:5%;top:6%;width:82px;height:82px}
+  #birthdayJourney .journey-shell:after{bottom:1%;font-size:14px;letter-spacing:.65em}
+}
