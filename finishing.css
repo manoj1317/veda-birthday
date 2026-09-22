@@ -71,3 +71,23 @@
 .journey-finale:before{content:'☾';display:block;font:400 70px/1 'Cormorant Garamond',serif;color:#ffe9c9;text-shadow:0 0 30px rgba(255,200,130,.35);margin-bottom:8px;animation:journeyMoonFloat 5s ease-in-out infinite}
 @keyframes journeyMoonFloat{0%,100%{transform:translateY(0) rotate(-12deg)}50%{transform:translateY(-10px) rotate(-7deg)}}
 @media(max-width:700px){#birthdayJourney:after{right:-2%;top:7%;font-size:100px;opacity:.68}.journey-finale:before{font-size:58px}}
+
+
+/* Full-scene moonlit backgrounds — the palette belongs to the whole page */
+#birthdayJourney{background:var(--journey-bg);transition:background 1s ease;min-height:calc(100vh - 94px)}
+#birthdayJourney:before{inset:0;z-index:-3;opacity:1;background:
+  radial-gradient(circle at 82% 18%,var(--journey-moon-haze),transparent 20%),
+  radial-gradient(circle at 18% 78%,var(--journey-glow),transparent 32%),
+  radial-gradient(circle at 72% 82%,var(--journey-glow2),transparent 30%),
+  linear-gradient(135deg,var(--journey-bg),var(--journey-bg2));transition:background 1s ease}
+#birthdayJourney:after{content:'';right:8%;top:9%;z-index:-1;width:clamp(95px,11vw,150px);height:clamp(95px,11vw,150px);border-radius:50%;background:var(--journey-moon);font-size:0;box-shadow:0 0 0 1px rgba(255,255,255,.12),0 0 35px var(--journey-moon-glow),0 0 110px var(--journey-moon-glow);opacity:.9;transform:none;animation:moonDrift 7s ease-in-out infinite}
+#birthdayJourney:after{background-image:radial-gradient(circle at 28% 32%,rgba(90,70,80,.12) 0 2px,transparent 3px),radial-gradient(circle at 66% 61%,rgba(90,70,80,.09) 0 3px,transparent 4px),radial-gradient(circle at 50% 22%,rgba(90,70,80,.08) 0 2px,transparent 3px),var(--journey-moon)}
+#birthdayJourney .journey-shell:before{content:'✦   ·   ✧       ·        ✦        ·   ✧';position:absolute;inset:0;top:5%;height:20%;color:rgba(255,255,255,.3);font:14px/3 'DM Sans',sans-serif;letter-spacing:2.4em;pointer-events:none;white-space:nowrap;opacity:.55}
+#birthdayJourney.page-1{--journey-bg:#160a19;--journey-bg2:#351127;--journey-accent:#ff9fc8;--journey-gold:#f3d4aa;--journey-glow:rgba(255,83,157,.22);--journey-glow2:rgba(180,72,188,.16);--journey-moon:#fff0f7;--journey-moon-haze:rgba(255,180,216,.18);--journey-moon-glow:rgba(255,156,203,.34)}
+#birthdayJourney.page-2{--journey-bg:#0d1024;--journey-bg2:#211947;--journey-accent:#bcaaff;--journey-gold:#eee1ff;--journey-glow:rgba(100,88,240,.24);--journey-glow2:rgba(54,155,255,.15);--journey-moon:#f0edff;--journey-moon-haze:rgba(169,156,255,.18);--journey-moon-glow:rgba(164,145,255,.34)}
+#birthdayJourney.page-3{--journey-bg:#21100e;--journey-bg2:#482019;--journey-accent:#ffb19f;--journey-gold:#f8d9ac;--journey-glow:rgba(255,103,78,.22);--journey-glow2:rgba(255,174,83,.15);--journey-moon:#fff1dc;--journey-moon-haze:rgba(255,194,132,.18);--journey-moon-glow:rgba(255,181,126,.32)}
+#birthdayJourney.page-4{--journey-bg:#081b1b;--journey-bg2:#103a3a;--journey-accent:#9de8d1;--journey-gold:#f3e2b7;--journey-glow:rgba(48,207,169,.19);--journey-glow2:rgba(80,122,255,.14);--journey-moon:#eafff8;--journey-moon-haze:rgba(132,238,211,.16);--journey-moon-glow:rgba(112,235,203,.3)}
+#birthdayJourney.page-5{--journey-bg:#1c1208;--journey-bg2:#43230d;--journey-accent:#ffd19f;--journey-gold:#ffe9b8;--journey-glow:rgba(255,160,62,.21);--journey-glow2:rgba(255,77,157,.15);--journey-moon:#fff6da;--journey-moon-haze:rgba(255,211,128,.2);--journey-moon-glow:rgba(255,205,126,.35)}
+#birthdayJourney.page-1 .journey-option,#birthdayJourney.page-2 .journey-option,#birthdayJourney.page-3 .journey-option,#birthdayJourney.page-4 .journey-option,#birthdayJourney.page-5 .journey-option{backdrop-filter:blur(10px)}
+@keyframes moonDrift{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(-10px,8px,0)}}
+@media(max-width:700px){#birthdayJourney:after{right:5%;top:6%;width:78px;height:78px}.journey-shell:before{display:none}}
