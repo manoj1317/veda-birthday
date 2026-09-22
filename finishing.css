@@ -1,1 +1,48 @@
 .reveal-section{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}.reveal-section.in-view{opacity:1;transform:none}.nav-mark{display:inline-flex!important;align-items:center!important;gap:.05em!important}.nav-mark span{display:inline-block!important;min-width:.72em!important;text-align:center!important}.wish button:disabled{opacity:.8;cursor:default;transform:none;box-shadow:none}.wish-card.wished .wish-message{animation:messageIn .5s ease both}.proposal-story{padding-top:35px}.proposal-card{max-width:930px;margin:auto;padding:72px clamp(28px,7vw,82px);border:1px solid rgba(255,154,199,.16);border-radius:34px;background:radial-gradient(circle at 88% 16%,rgba(255,93,166,.10),transparent 28%),linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,108,173,.025));box-shadow:0 35px 100px rgba(0,0,0,.28);position:relative;overflow:hidden}.proposal-card:before{content:'♡';position:absolute;right:7%;top:6%;font:400 150px/1 'Cormorant Garamond',serif;color:rgba(255,164,204,.055);transform:rotate(10deg);pointer-events:none}.proposal-card h3{position:relative;font-size:clamp(54px,7vw,82px);line-height:.88;margin:14px 0 30px}.proposal-copy{position:relative;max-width:720px;color:var(--muted);font-family:'Cormorant Garamond',serif;font-size:22px;line-height:1.55;margin:0 0 28px}.proposal-beat{display:flex;align-items:center;gap:18px;margin:38px 0 30px;color:var(--gold);font-size:10px;letter-spacing:.2em;text-transform:uppercase}.proposal-beat i{display:block;width:90px;height:1px;background:linear-gradient(90deg,var(--rose),rgba(242,208,160,.5));position:relative}.proposal-beat i:after{content:'♡';position:absolute;left:50%;top:50%;transform:translate(-50%,-58%);padding:0 7px;background:#170b20;color:var(--rose2);font-size:16px}.proposal-sign{position:relative;margin:38px 0 0;padding-top:28px;border-top:1px solid rgba(255,221,235,.10);color:#f0d9e3;font:italic 20px/1.5 'Cormorant Garamond',serif}.timeline-item:nth-child(3) .timeline-dot,.timeline-item:nth-child(4) .timeline-dot{border-color:rgba(255,134,184,.55);box-shadow:0 0 25px rgba(255,101,167,.12)}@keyframes messageIn{from{opacity:.3;transform:translateY(5px)}to{opacity:1;transform:none}}@media(max-width:600px){.reveal-section{transform:translateY(18px)}.proposal-card{padding:48px 24px;border-radius:26px}.proposal-card h3{font-size:clamp(48px,14vw,68px)}.proposal-copy{font-size:19px}.proposal-beat{gap:10px}.proposal-beat i{width:42px}.proposal-sign{font-size:18px}}
+
+/* Interactive birthday journey — four choices per page */
+#birthdayJourney{min-height:calc(100vh - 94px);display:flex;align-items:center;justify-content:center;padding:42px 0 70px}
+.journey-shell{width:min(980px,100%);min-height:650px;display:flex;flex-direction:column;justify-content:center}
+.journey-top{display:flex;align-items:center;gap:18px;margin-bottom:48px}
+.journey-progress{height:2px;flex:1;background:linear-gradient(90deg,var(--rose),var(--gold));display:block;transition:width .5s ease}
+.journey-count{font:500 12px 'DM Sans',sans-serif;letter-spacing:.16em;color:var(--soft)}
+.journey-copy{max-width:760px;margin-bottom:42px}
+.journey-eyebrow{margin:0 0 13px;text-transform:uppercase;letter-spacing:.27em;font-size:10px;color:var(--gold)}
+.journey-title{font:500 clamp(54px,7vw,88px)/.86 'Cormorant Garamond',serif;margin:0 0 22px;letter-spacing:-.02em}
+.journey-title em{color:var(--rose);font-style:italic}
+.journey-text{max-width:610px;color:var(--muted);font:400 18px/1.65 'Cormorant Garamond',serif;margin:0}
+.journey-options{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.journey-option{position:relative;min-height:142px;padding:24px 25px;text-align:left;border:1px solid rgba(255,153,197,.16);border-radius:22px;background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,101,167,.025));color:var(--text);display:grid;grid-template-columns:52px 1fr 24px;grid-template-rows:auto 1fr;column-gap:15px;overflow:hidden;cursor:pointer;transition:transform .3s ease,border-color .3s,background .3s,box-shadow .3s}
+.journey-option:hover{transform:translateY(-4px);border-color:rgba(255,153,197,.42);box-shadow:0 20px 55px rgba(0,0,0,.22)}
+.journey-icon{grid-row:1/3;display:grid;place-items:center;width:52px;height:52px;border-radius:50%;border:1px solid rgba(242,208,160,.28);color:var(--gold);font:500 15px 'Cormorant Garamond',serif}
+.journey-option-copy{display:flex;flex-direction:column;gap:5px}
+.journey-option-copy strong{font:500 28px/1 'Cormorant Garamond',serif;color:#fff5f8}
+.journey-option-copy small{color:#a98e9e;font:500 9px 'DM Sans',sans-serif;text-transform:uppercase;letter-spacing:.15em}
+.journey-arrow{color:var(--rose2);font-size:20px;text-align:right}
+.journey-message{grid-column:2/4;align-self:end;color:var(--muted);font:400 14px/1.55 'DM Sans',sans-serif;opacity:0;transform:translateY(8px);max-height:0;transition:opacity .35s,transform .35s,max-height .35s;margin-top:0}
+.journey-option.opened{border-color:rgba(255,184,215,.48);background:linear-gradient(145deg,rgba(255,116,177,.10),rgba(255,255,255,.035));box-shadow:0 15px 45px rgba(255,91,164,.08)}
+.journey-option.opened .journey-icon{color:#fff;border-color:rgba(255,184,215,.55);box-shadow:0 0 25px rgba(255,99,170,.13)}
+.journey-option.opened .journey-message{opacity:1;transform:none;max-height:120px;margin-top:15px}
+.journey-option.opened .journey-arrow{transform:rotate(45deg)}
+.journey-next{align-self:center;margin-top:30px;min-height:46px;padding:14px 24px;border:1px solid rgba(255,184,215,.12);border-radius:999px;color:#705866;font:600 10px 'DM Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;transition:.3s}
+.journey-next.ready{color:#fff0f6;border-color:rgba(255,184,215,.55);background:rgba(255,111,174,.09);box-shadow:0 0 35px rgba(255,91,164,.12);cursor:pointer}
+.journey-finale{text-align:center;max-width:760px;margin:auto;padding:40px 20px 80px}
+.journey-finale .final-heart{font:400 80px/1 'Cormorant Garamond',serif;color:var(--rose2);text-shadow:0 0 35px rgba(255,99,170,.35);animation:heartbeat 2.8s ease-in-out infinite}
+.journey-finale h2{font:500 clamp(62px,9vw,110px)/.82 'Cormorant Garamond',serif;margin:22px 0 28px}
+.journey-finale h2 em{color:var(--rose);font-style:italic}
+.journey-finale>p:not(.journey-eyebrow):not(.final-small){color:var(--muted);font:400 18px/1.7 'Cormorant Garamond',serif}
+.journey-finale blockquote{margin:28px auto;padding:25px 30px;border-left:1px solid var(--gold);color:#f2dce6;font:italic 24px/1.5 'Cormorant Garamond',serif}
+.journey-finale .final-small{color:var(--soft);font:italic 19px 'Cormorant Garamond',serif}
+.final-restart{margin-top:25px;min-height:46px}
+@media(max-width:700px){
+  #birthdayJourney{min-height:calc(100vh - 75px);padding:25px 0 45px}
+  .journey-shell{min-height:0}
+  .journey-top{margin-bottom:32px}
+  .journey-copy{margin-bottom:30px}
+  .journey-title{font-size:clamp(50px,14vw,72px)}
+  .journey-text{font-size:17px}
+  .journey-options{grid-template-columns:1fr}
+  .journey-option{min-height:128px}
+  .journey-option-copy strong{font-size:25px}
+  .journey-finale{padding-top:20px}
+}
