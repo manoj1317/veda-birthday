@@ -123,6 +123,7 @@ function buildWelcome(){
       site.classList.remove('hidden');
       window.scrollTo(0,0);
       buildJourney();
+      startVedaMusic();
     },650);
   });
 }
@@ -289,4 +290,60 @@ if(wishButton){
     wishButton.textContent='Wish sent into the universe ✦';
     wishButton.disabled=true;
   });
+}
+
+
+/* Birthday music — starts only after Veda explicitly enters the site. */
+let vedaPlayer=null;
+let vedaMusicReady=false;
+function startVedaMusic(){
+  if(document.getElementById('vedaMusic')) return;
+  const box=document.createElement('div');
+  box.id='vedaMusic';
+  box.innerHTML=
+    '<div class="veda-music-player" id="vedaMusicPlayer"></div>'+
+    '<button class="veda-music-toggle" id="vedaMusicToggle" type="button" aria-label="Pause music"><span>♫</span><strong>Nijame Ne Chebutunna</strong><small>Sid Sriram · Veda’s song</small></button>';
+  document.body.appendChild(box);
+  const style=document.createElement('style');
+  style.textContent=`
+#vedaMusic{position:fixed;right:22px;bottom:22px;z-index:5000;display:flex;align-items:center}
+.veda-music-player{position:absolute;width:1px;height:1px;overflow:hidden;opacity:.01;pointer-events:none}
+.veda-music-toggle{display:grid;grid-template-columns:34px 1fr;grid-template-rows:auto auto;column-gap:9px;align-items:center;min-width:220px;padding:10px 15px 10px 10px;border:1px solid rgba(255,201,222,.25);border-radius:18px;background:rgba(28,10,27,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);color:#fff4f8;box-shadow:0 12px 35px rgba(0,0,0,.25);cursor:pointer;text-align:left}
+.veda-music-toggle span{grid-row:1/3;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#ff9fc8;color:#2a101e;font-size:16px}
+.veda-music-toggle strong{font:600 11px 'DM Sans',sans-serif;letter-spacing:.02em;white-space:nowrap}
+.veda-music-toggle small{font:400 9px 'DM Sans',sans-serif;color:#dcbcc9;margin-top:2px}
+.veda-music-toggle:hover{transform:translateY(-2px);border-color:rgba(255,201,222,.5)}
+@media(max-width:700px){#vedaMusic{right:12px;bottom:12px}.veda-music-toggle{min-width:0;width:205px;padding:9px 11px}.veda-music-toggle strong{font-size:10px}}
+`;
+  document.head.appendChild(style);
+  const toggle=document.getElementById('vedaMusicToggle');
+  toggle.addEventListener('click',()=>{
+    if(!vedaPlayer) return;
+    if(vedaPlayer.getPlayerState && vedaPlayer.getPlayerState()===1){
+      vedaPlayer.pauseVideo();
+      toggle.querySelector('span').textContent='▶';
+      toggle.setAttribute('aria-label','Play music');
+    }else{
+      vedaPlayer.playVideo();
+      toggle.querySelector('span').textContent='♫';
+      toggle.setAttribute('aria-label','Pause music');
+    }
+  });
+  function createPlayer(){
+    vedaPlayer=new YT.Player('vedaMusicPlayer',{
+      width:'1',height:'1',videoId:'MxUB6j7QZqs',
+      playerVars:{autoplay:1,controls:0,playsinline:1,rel:0,modestbranding:1},
+      events:{onReady:e=>{vedaMusicReady=true;e.target.playVideo();},onStateChange:e=>{
+        if(e.data===0)e.target.playVideo();
+      }}
+    });
+  }
+  if(window.YT&&window.YT.Player){createPlayer();}
+  else{
+    const previous=window.onYouTubeIframeAPIReady;
+    window.onYouTubeIframeAPIReady=()=>{if(typeof previous==='function')previous();createPlayer();};
+    const api=document.createElement('script');
+    api.src='https://www.youtube.com/iframe_api';
+    document.head.appendChild(api);
+  }
 }
