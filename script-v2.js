@@ -312,7 +312,7 @@ function startVedaMusic(){
   document.head.appendChild(style);
   const player=box.querySelector('.veda-music-player');
   const toggle=box.querySelector('#vedaMusicToggle');
-  const src='https://www.youtube.com/embed/MxUB6j7QZqs?autoplay=1&playsinline=1&loop=1&playlist=MxUB6j7QZqs&rel=0&modestbranding=1';
+  const src='https://www.youtube.com/embed/I6eBRFEGyOk?autoplay=1&playsinline=1&loop=1&playlist=I6eBRFEGyOk&rel=0&modestbranding=1';
   player.innerHTML='<iframe title="Nijame Ne Chebutunna" width="1" height="1" src="'+src+'" allow="autoplay; encrypted-media; picture-in-picture" frameborder="0"></iframe>';
   vedaMusicFrame=player.querySelector('iframe');
   toggle.addEventListener('click',()=>{
