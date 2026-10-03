@@ -299,7 +299,7 @@ function startVedaMusic(){
   if(document.getElementById('vedaMusic'))return;
   const box=document.createElement('div');
   box.id='vedaMusic';
-  box.innerHTML='<div class="veda-music-player" aria-hidden="true"></div><button class="veda-music-toggle" id="vedaMusicToggle" type="button" aria-label="Pause music"><span>♫</span><strong>Nijame Ne Chebutunna</strong><small>Sid Sriram · Veda’s song</small></button>';
+  box.innerHTML='<div class="veda-music-player" aria-hidden="true"></div><button class="veda-music-toggle" id="vedaMusicToggle" type="button" aria-label="Pause music"><span>♫</span><strong>Veda’s song</strong><small>00:24 → 02:00</small></button>';
   document.body.appendChild(box);
   const style=document.createElement('style');
   style.textContent=`
@@ -312,8 +312,8 @@ function startVedaMusic(){
   document.head.appendChild(style);
   const player=box.querySelector('.veda-music-player');
   const toggle=box.querySelector('#vedaMusicToggle');
-  const src='https://www.youtube.com/embed/I6eBRFEGyOk?autoplay=1&playsinline=1&loop=1&playlist=I6eBRFEGyOk&rel=0&modestbranding=1';
-  player.innerHTML='<iframe title="Nijame Ne Chebutunna" width="1" height="1" src="'+src+'" allow="autoplay; encrypted-media; picture-in-picture" frameborder="0"></iframe>';
+  const src='https://www.youtube.com/embed/QPxvSJimDjw?autoplay=1&playsinline=1&start=24&end=120&rel=0&modestbranding=1';
+  player.innerHTML='<iframe title="Veda birthday music" width="1" height="1" src="'+src+'" allow="autoplay; encrypted-media; picture-in-picture" frameborder="0"></iframe>';
   vedaMusicFrame=player.querySelector('iframe');
   toggle.addEventListener('click',()=>{
     if(!vedaMusicFrame)return;
