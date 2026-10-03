@@ -312,7 +312,7 @@ function startVedaMusic(){
   document.head.appendChild(style);
   const player=box.querySelector('.veda-music-player');
   const toggle=box.querySelector('#vedaMusicToggle');
-  const src='https://www.youtube.com/embed/QPxvSJimDjw?autoplay=1&playsinline=1&start=24&end=120&rel=0&modestbranding=1';
+  const src='https://www.youtube.com/embed/QPxvSJimDjw?autoplay=1&playsinline=1&start=24&end=120&loop=1&playlist=QPxvSJimDjw&rel=0&modestbranding=1';
   player.innerHTML='<iframe title="Veda birthday music" width="1" height="1" src="'+src+'" allow="autoplay; encrypted-media; picture-in-picture" frameborder="0"></iframe>';
   vedaMusicFrame=player.querySelector('iframe');
   toggle.addEventListener('click',()=>{
