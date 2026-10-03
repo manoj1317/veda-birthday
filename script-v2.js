@@ -139,10 +139,10 @@ function buildJourney(){
       title:'Choose a little<br><em>door into my heart.</em>',
       text:'There is no wrong choice. Open all four, one by one, and each will leave you a tiny message from me.',
       options:[
-        ['♡','Your smile','You have this unfair little superpower of making ordinary moments feel worth remembering.'],
-        ['✦','Your laugh','Some sounds just make a day softer. Yours is one of them.'],
-        ['∞','Your heart','The warmth you carry is one of the things I quietly treasure most.'],
-        ['☾','Your presence','Even doing nothing feels different when you are there.']
+        ['♡','నీ నవ్వు','నీ నవ్వులో ఏదో చిన్న మాయ ఉంది… సాధారణమైన క్షణాల్ని కూడా జీవితాంతం గుర్తుండిపోయే జ్ఞాపకాలుగా మార్చేస్తుంది.'],
+        ['✦','నీ నవ్వు శబ్దం','కొన్ని శబ్దాలు మనసును తెలియకుండానే తేలిక చేస్తాయి… నీ నవ్వు అలాంటిదే.'],
+        ['∞','నీ మనసు','నీ మనసులో ఉన్న ఆప్యాయత, వెచ్చదనం… నేను మౌనంగా ఎంతో ప్రేమగా దాచుకున్న వాటిలో అవి కూడా ఉన్నాయి.'],
+        ['☾','నీ తోడు','ఏమీ చేయకుండా నిశ్శబ్దంగా ఉన్నా… నువ్వు పక్కన ఉంటే ఆ క్షణానికే ఒక ప్రత్యేకమైన అందం వస్తుంది.']
       ]
     },
     {
@@ -150,10 +150,10 @@ function buildJourney(){
       title:'Four tiny reasons<br><em>I keep smiling.</em>',
       text:'Open every one. Think of these as four folded notes I slipped into your birthday universe.',
       options:[
-        ['01','The way you care','You notice little things, and somehow those little things become big things to me.'],
-        ['02','The way you dream','I hope you always make room for the dreams that make your eyes light up.'],
-        ['03','The way you tease','That playful side of you has created more smiles than you probably realize. 😛'],
-        ['04','The way you are','No grand explanation needed. I simply love the person you are.']
+        ['01','నువ్వు చూపించే శ్రద్ధ','నువ్వు గమనించే చిన్న చిన్న విషయాలే… నా మనసులో మాత్రం చాలా పెద్దవిగా మారిపోతాయి.'],
+        ['02','నీ కలలు','నీ కళ్లలో వెలుగు నింపే ప్రతి కలకూ… నీ జీవితంలో ఎప్పుడూ చోటు ఉండాలని కోరుకుంటాను.'],
+        ['03','నువ్వు ఆటపట్టించే తీరు','నువ్వు సరదాగా ఆటపట్టించే ఆ చిన్న చిన్న క్షణాలే… నీకు తెలియకుండానే నాకు ఎన్నో నవ్వులు ఇచ్చాయి. 😛'],
+        ['04','నువ్వు నువ్వుగా ఉండటం','ఎలాంటి పెద్ద కారణం అవసరం లేదు… నువ్వు ఎలా ఉన్నావో అలా నిన్ను ప్రేమిస్తున్నాను.']
       ]
     },
     {
@@ -161,10 +161,10 @@ function buildJourney(){
       title:'Some moments deserve<br><em>their own page.</em>',
       text:'Four doors. Four memories. Open them all.',
       options:[
-        ['03 FEB','The bike ride','A ride to your friend’s marriage became the road where I finally said, “I love you.”'],
-        ['♡','The little ring','You were already wearing the ring. I took it, proposed, and put that same ring back on you. You laughed. 😛'],
-        ['14 FEB','The second question','I asked again on Valentine’s Day — and this time, you gave me the answer I had been waiting for.'],
-        ['YES','The answer','That little “yes” turned a nervous question into one of my favorite memories. ♡']
+        ['03 FEB','ఆ బైక్ ప్రయాణం','నీ ఫ్రెండ్ పెళ్లికి వెళ్తున్న ఆ బైక్ ప్రయాణమే… చివరికి “I love you” అని నా మనసులోని మాట చెప్పిన ప్రయాణంగా మారింది.'],
+        ['♡','ఆ చిన్న ఉంగరం','నువ్వు అప్పటికే వేసుకున్న ఆ ఉంగరాన్నే తీసుకుని, నీకు ప్రపోజ్ చేసి… మళ్లీ అదే ఉంగరాన్ని నీ చేతికి పెట్టాను. నువ్వేమో నవ్వేశావు. 😛'],
+        ['14 FEB','మళ్లీ అడిగిన ప్రశ్న','వాలెంటైన్స్ డే రోజున మళ్లీ అడిగాను… ఈసారి మాత్రం నేను ఎదురుచూస్తున్న సమాధానం నాకు దొరికింది.'],
+        ['YES','ఆ సమాధానం','ఆ చిన్న “అవును” అనే మాట… నా జీవితంలో ఎంతో ఇష్టమైన జ్ఞాపకాలలో ఒకటిగా ఆ క్షణాన్ని మార్చేసింది. ♡']
       ]
     },
     {
@@ -172,10 +172,10 @@ function buildJourney(){
       title:'Four wishes<br><em>for my Veda.</em>',
       text:'Open every wish. Then the next page will be waiting for you.',
       options:[
-        ['♡','More love','May you always feel surrounded by the kind of love that makes you feel safe and seen.'],
-        ['✦','More happiness','May ordinary Tuesdays surprise you with reasons to smile.'],
-        ['∞','More dreams','May you chase beautiful things without ever making yourself smaller for them.'],
-        ['→','More adventures','May there be many more roads, stories, laughs and memories waiting for us.']
+        ['♡','ఇంకా ప్రేమ','నిన్ను అర్థం చేసుకునే, నీకు భద్రతగా అనిపించే ప్రేమతో నువ్వు ఎప్పుడూ చుట్టుముట్టబడి ఉండాలి.'],
+        ['✦','ఇంకా ఆనందం','సాధారణమైన రోజులు కూడా నీకు అనుకోని చిరునవ్వుల్ని, చిన్న చిన్న సంతోషాల్ని అందించాలి.'],
+        ['∞','ఇంకా కలలు','నీ మనసు కోరుకునే అందమైన కలల వెంట… ఎప్పుడూ ధైర్యంగా పరుగెత్తే అవకాశం నీకు ఉండాలి.'],
+        ['→','ఇంకా ప్రయాణాలు','మన కోసం ఇంకా ఎన్నో దారులు, కథలు, నవ్వులు, మధురమైన జ్ఞాపకాలు ఎదురుచూస్తూ ఉండాలి.']
       ]
     },
     {
@@ -183,10 +183,10 @@ function buildJourney(){
       title:'And now,<br><em>one last little page.</em>',
       text:'You opened every door. So here is the part I want you to keep.',
       options:[
-        ['♡','Remember this','You are deeply, wonderfully special to me.'],
-        ['✦','Remember today','08 October 2001 — the day the world got my Veda.'],
-        ['∞','Remember us','A bike ride, a ring, a laugh, a second question… and a yes.'],
-        ['♥','Remember always','Whatever chapters come next, I hope they are filled with beautiful moments.']
+        ['♡','ఇది గుర్తుంచుకో','నువ్వు నాకు ఎంతో ప్రత్యేకమైనవు… మాటల్లో పూర్తిగా చెప్పలేనంతగా.'],
+        ['✦','ఈ రోజును గుర్తుంచుకో','08 అక్టోబర్ 2001 — ఈ ప్రపంచానికి నా వేదా వచ్చిన రోజు.'],
+        ['∞','మనల్ని గుర్తుంచుకో','ఒక బైక్ ప్రయాణం, ఒక ఉంగరం, ఒక నవ్వు, మళ్లీ అడిగిన ప్రశ్న… చివరికి ఒక “అవును”.'],
+        ['♥','ఎప్పటికీ గుర్తుంచుకో','మన కథలో ఇంకా ఎన్ని అధ్యాయాలు వచ్చినా… అవన్నీ ఇలాంటి అందమైన క్షణాలతో నిండిపోవాలని కోరుకుంటున్నాను.']
       ]
     }
   ];
