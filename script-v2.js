@@ -213,10 +213,13 @@ function buildJourney(){
     text.textContent=page.text;
     count.textContent=`${pageIndex+1} / ${pages.length}`;
     journey.className=`page-${pageIndex+1}`;
+    site.querySelector('.topbar')?.classList.add('journey-active');
+    const navDate=site.querySelector('.journey-nav-date');
+    if(navDate) navDate.textContent=`${String(pageIndex+1).padStart(2,'0')} / ${pages.length} · VEDA ♡`;
     journey.style.setProperty('--journey-photo', `url("veda-page-${pageIndex+1}.jpg")`);
     progress.style.width=`${((pageIndex+1)/pages.length)*100}%`;
     options.innerHTML='';
-    next.textContent=pageIndex===pages.length-1?'All four opened ♡':'Open all four to continue';
+    next.textContent=pageIndex===pages.length-1?'All four opened ♡':'Open every note to continue';
     next.classList.remove('ready');
 
     page.options.forEach((item,i)=>{
@@ -231,7 +234,7 @@ function buildJourney(){
         const opened=options.querySelectorAll('.journey-option.opened').length;
         if(opened===4){
           next.classList.add('ready');
-          next.textContent=pageIndex===pages.length-1?'Enter your little universe ♡':'Continue to the next page →';
+          next.textContent=pageIndex===pages.length-1?'Keep this birthday moment ♡':'Keep going →';
           setTimeout(()=>next.focus(),120);
         }
       });
@@ -251,7 +254,7 @@ function buildJourney(){
   });
 
   function showFinalBirthday(){
-    journey.innerHTML=`<div class="journey-finale"><p class="journey-eyebrow">08 · OCTOBER · 2001</p><div class="final-heart">♡</div><h2>Happy Birthday,<br><em>my Veda.</em></h2><p>You opened every little door. Now keep this one:</p><blockquote>“నీకు నచ్చినట్టుగా జీవించే ధైర్యం, మనసారా నవ్వే రోజులు, నువ్వు కలలు కనే వాటిని చేరుకునే అవకాశం… ఇవన్నీ ఈ కొత్త సంవత్సరంలో నీకు దొరకాలి. నేను మాత్రం ప్రతి దారిలో నీ పక్కనే ఉండాలని కోరుకుంటాను.”</blockquote><p class="final-small">With all my love, always. ♡</p><button class="final-restart" type="button">Start the little universe again</button></div>`;
+    journey.innerHTML=`<div class="journey-finale"><p class="journey-eyebrow">08 · OCTOBER · 2001</p><div class="final-heart">♡</div><h2>Happy Birthday,<br><em>my Veda.</em></h2><p>You opened every little door. Now keep this one:</p><blockquote>“నీకు నచ్చినట్టుగా జీవించే ధైర్యం, మనసారా నవ్వే రోజులు, నువ్వు కలలు కనే వాటిని చేరుకునే అవకాశం… ఇవన్నీ ఈ కొత్త సంవత్సరంలో నీకు దొరకాలి. నేను మాత్రం ప్రతి దారిలో నీ పక్కనే ఉండాలని కోరుకుంటాను.”</blockquote><p class="final-punchline">I would choose you again. ♡</p><p class="final-small">With all my love, always.</p><button class="final-restart" type="button">Start the little universe again</button></div>`;
     journey.querySelector('.final-restart').addEventListener('click',()=>{pageIndex=0;renderPage();});
   }
 
