@@ -621,3 +621,50 @@
     height:82px;
   }
 }
+
+
+/* Final polish: the journey owns the topbar while the interactive story is active. */
+#birthdayJourney ~ *{display:none}
+#site .topbar.journey-active{
+  position:relative;
+  z-index:8;
+  height:72px;
+  border-bottom-color:rgba(255,255,255,.08);
+}
+#site .topbar.journey-active .nav-mark{
+  font-size:42px;
+}
+#site .topbar.journey-active .nav-right{
+  gap:0;
+}
+#site .topbar.journey-active .journey-nav-date{
+  color:#f0cfdc;
+  font-size:10px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+#birthdayJourney .journey-option{
+  transition:transform .35s ease,background .35s ease,border-color .35s ease,box-shadow .35s ease;
+}
+#birthdayJourney .journey-option.opened{
+  transform:translateY(-2px);
+  box-shadow:0 14px 38px rgba(0,0,0,.2);
+}
+#birthdayJourney .journey-option:focus-visible,
+#birthdayJourney .journey-next:focus-visible,
+#birthdayJourney .final-restart:focus-visible{
+  outline:2px solid #ffb5d2;
+  outline-offset:4px;
+}
+#birthdayJourney .final-punchline{
+  margin:18px 0 0;
+  color:#ffb2cf;
+  font:500 clamp(24px,3vw,32px)/1.2 'Cormorant Garamond',serif;
+  font-style:italic;
+  text-shadow:0 3px 20px rgba(0,0,0,.7);
+}
+@media(max-width:700px){
+  #site .topbar.journey-active{height:62px}
+  #site .topbar.journey-active .nav-mark{font-size:36px}
+  #site .topbar.journey-active .journey-nav-date{font-size:9px;letter-spacing:.12em}
+}
